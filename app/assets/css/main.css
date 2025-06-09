@@ -1,0 +1,48 @@
+@import "tailwindcss";
+@import "@nuxt/ui-pro";
+@import "./twoslash.css";
+
+@config '../../../tailwind.config.js';
+
+@theme static {
+  --font-sans: 'Public Sans', sans-serif;
+
+  --color-green-50: #EFFDF5;
+  --color-green-100: #D9FBE8;
+  --color-green-200: #B3F5D1;
+  --color-green-300: #75EDAE;
+  --color-green-400: #00DC82;
+  --color-green-500: #00C16A;
+  --color-green-600: #00A155;
+  --color-green-700: #007F45;
+  --color-green-800: #016538;
+  --color-green-900: #0A5331;
+  --color-green-950: #052E16;
+
+  --color-gray-50: #F9FAFB;
+  --color-gray-100: #F3F4F6;
+  --color-gray-200: #E5E7EB;
+  --color-gray-300: #D1D5DB;
+  --color-gray-400: #9CA3AF;
+  --color-gray-500: #6B7280;
+  --color-gray-600: #4B5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1F2937;
+  --color-gray-900: #111827;
+  --color-gray-950: #030712;
+}
+
+:root {
+  --ui-container: 90rem;
+}
+
+/* Nuxt环境下隐藏纯Vue专属内容 */
+html[data-framework="nuxt"] .vue-only,
+  /* 纯Vue环境下隐藏Nuxt专属内容 */
+html[data-framework="vue"] .nuxt-only,
+  /* UI Pro环境下隐藏基础版内容 */
+html[data-module="ui-pro"] .ui-only,
+  /* 基础版环境下隐藏Pro专属内容 */
+html[data-module="ui"] .ui-pro-only {
+  display: none;
+}
