@@ -30,13 +30,13 @@ export async function fetchComponentMeta(name: string): Promise<{ meta: Componen
   }
 
   // 如果已经存在该组件的元信息，直接返回
-  if (state.value[name]) {
-    return state.value[name]
-  }
+  // if (state.value[name]) {
+  //   return state.value[name]
+  // }
 
   // Add to nitro prerender
   // 在服务端渲染（SSR）时，将该 API 接口路径添加到 Nitro 的预渲染队列中
-  if (import.meta.server) {
+  if (import.meta.server) { // Nuxt 注入的环境变量，在服务端运行时为 true
     const event = useRequestEvent()
     // 设置响应头，通知 Nitro 预渲染该组件元信息接口
     event?.node.res.setHeader(

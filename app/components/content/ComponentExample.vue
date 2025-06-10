@@ -101,8 +101,6 @@ const camelName = camelCase(props.name)
 // 异步获取当前组件对应的示例代码和元信息
 const data = await fetchComponentExample(camelName)
 
-console.log(data.code)
-
 // 使用 reactive 创建响应式的 componentProps 对象，基于 props.props 初始化
 const componentProps = reactive({ ...(props.props || {}) })
 
