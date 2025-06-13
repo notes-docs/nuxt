@@ -22,50 +22,40 @@ links:
 
 你可以传递 `Link` 组件的任何属性，例如 `to`、`target` 等。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-import type { PageAnchor } from '@nuxt/ui-pro'
-
-const links = ref<PageAnchor[]>([
-  {
-    label: 'Documentation',
-    icon: 'i-lucide-book-open',
-    to: '/getting-started'
-  },
-  {
-    label: 'Components',
-    icon: 'i-lucide-box',
-    to: '/components/app'
-  },
-  {
-    label: 'Roadmap',
-    icon: 'i-lucide-map',
-    to: '/roadmap'
-  },
-  {
-    label: 'Figma Kit',
-    icon: 'i-simple-icons-figma',
-    to: 'https://www.figma.com/community/file/1288455405058138934',
-    target: '_blank'
-  },
-  {
-    label: 'Releases',
-    icon: 'i-simple-icons-github',
-    to: 'https://github.com/nuxt/ui/releases',
-    target: '_blank'
-  }
-])
-</script>
-
-<template>
-  <UPageAnchors :links="links" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - links
+hide:
+  - class
+external:
+  - links
+externalTypes:
+  - PageAnchor[]
+props:
+  class: 'px-4'
+  links:
+    - label: 'Documentation'
+      icon:  'i-lucide-book-open'
+      to: '/getting-started'
+    - label: 'Components'
+      icon: 'i-lucide-box'
+      to: '/components/app'
+    - label: 'Roadmap'
+      icon: 'i-lucide-map'
+      to: '/roadmap'
+    - label: 'Figma Kit'
+      icon: 'i-simple-icons-figma'
+      to: 'https://www.figma.com/community/file/1288455405058138934'
+      target: '_blank'
+    - label: 'Releases'
+      icon: 'i-simple-icons-github'
+      to:  'https://github.com/nuxt/ui/releases'
+      target: '_blank'
+---
 ::
 
 ## 示例
@@ -78,7 +68,7 @@ const links = ref<PageAnchor[]>([
 
 在 `PageAside` 组件内部使用 `PageAnchors` 组件，以在导航上方显示链接列表。
 
-```vue [layouts/docs.vue]
+```vue{35} [layouts/docs.vue]
 <script setup lang="ts">
 import type { PageAnchor } from '@nuxt/ui-pro'
 import type { ContentNavigationItem } from '@nuxt/content'

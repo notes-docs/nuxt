@@ -51,8 +51,6 @@ const metaProps: ComputedRef<ComponentMeta['props']> = computed(() => {
     return []
   }
 
-  console.log(meta.meta.props)
-
   return meta.meta.props.filter((prop) => {
     return !props.ignore?.includes(prop.name)
   }).map((prop) => {

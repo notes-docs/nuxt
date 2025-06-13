@@ -16,16 +16,20 @@ links:
 
 `ColorModeSwitch` 组件扩展了 `Switch` 组件，因此你可以传递任何属性，例如 `color`、`size` 等。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UColorModeSwitch />
-</template>
-```
+::component-code
+---
+pro: true
+prefix: 'color-mode'
+prettier: true
+ignore:
+  - class
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'px-4'
+---
 ::
 
 ## 示例 (Examples)

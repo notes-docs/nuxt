@@ -27,102 +27,17 @@ links:
 
 使用 `left`、`default` 和 `right` 插槽来自定义侧边栏，并使用 `body` 或 `content` 插槽来自定义侧边栏菜单。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-import type { NavigationMenuItem } from '@nuxt/ui'
-
-const items: NavigationMenuItem[][] = [[{
-  label: '首页',
-  icon: 'i-lucide-house',
-  active: true
-}, {
-  label: '收件箱',
-  icon: 'i-lucide-inbox',
-  badge: '4'
-}, {
-  label: '联系人',
-  icon: 'i-lucide-users'
-}, {
-  label: '设置',
-  icon: 'i-lucide-settings',
-  defaultOpen: true,
-  children: [{
-    label: '通用'
-  }, {
-    label: '成员'
-  }, {
-    label: '通知'
-  }]
-}], [{
-  label: '反馈',
-  icon: 'i-lucide-message-circle',
-  to: 'https://github.com/nuxt-ui-pro/dashboard',
-  target: '_blank'
-}, {
-  label: '帮助与支持',
-  icon: 'i-lucide-info',
-  to: 'https://github.com/nuxt/ui-pro',
-  target: '_blank'
-}]]
-</script>
-
-<template>
-  <UDashboardSidebar collapsible resizable :ui="{ footer: 'border-t border-default' }">
-    <template #header="{ collapsed }">
-      <LogoPro :collapsed="collapsed" class="h-5 w-auto shrink-0" />
-    </template>
-
-    <template #default="{ collapsed }">
-      <UButton
-        :label="collapsed ? undefined : '搜索...'"
-        icon="i-lucide-search"
-        color="neutral"
-        variant="outline"
-        block
-        :square="collapsed"
-      >
-        <template v-if="!collapsed" #trailing>
-          <div class="flex items-center gap-0.5 ms-auto">
-            <UKbd value="meta" variant="subtle" />
-            <UKbd value="K" variant="subtle" />
-          </div>
-        </template>
-      </UButton>
-
-      <UNavigationMenu
-        :collapsed="collapsed"
-        :items="items[0]"
-        orientation="vertical"
-      />
-
-      <UNavigationMenu
-        :collapsed="collapsed"
-        :items="items[1]"
-        orientation="vertical"
-        class="mt-auto"
-      />
-    </template>
-
-    <template #footer="{ collapsed }">
-      <UButton
-        :avatar="{
-          src: 'https://github.com/benjamincanac.png'
-        }"
-        :label="collapsed ? undefined : 'Benjamin'"
-        color="neutral"
-        variant="ghost"
-        class="w-full"
-        :block="collapsed"
-      />
-    </template>
-  </UDashboardSidebar>
-</template>
-```
+::component-example
+---
+name: 'dashboard-sidebar-example'
+class: '!p-0 !justify-start'
+collapse: true
+props:
+  class: '!min-h-96 h-136'
+  minSize: 20
+  defaultSize: 35
+  maxSize: 50
+---
 ::
 
 ::note
@@ -133,20 +48,31 @@ const items: NavigationMenuItem[][] = [[{
 
 使用 `resizable` prop 使侧边栏可调整大小。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UDashboardSidebar resizable>
-    <Placeholder class="h-96" />
-  </UDashboardSidebar>
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+class: '!p-0 !justify-start'
+ignore:
+  - class
+  - defaultSize
+  - minSize
+  - maxSize
+hide:
+  - class
+external:
+externalTypes:
+slots:
+  default: <Placeholder class="h-96" />
+props:
+  class: '!min-h-96 h-136'
+  resizable: true
+  minSize: 20
+  defaultSize: 35
+  maxSize: 50
+---
+<Placeholder class="h-136" />
 ::
-
 
 ### 可折叠 (Collapsible)
 
@@ -156,18 +82,32 @@ TODO
 如果侧边栏不可折叠，`DashboardSidebarCollapse` 组件将不起作用。
 ::
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UDashboardSidebar resizable collapsible>
-    <Placeholder class="h-96" />
-  </UDashboardSidebar>
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+class: '!p-0 !justify-start'
+ignore:
+  - class
+  - side
+  - resizable
+  - defaultSize
+hide:
+  - class
+  - defaultSize
+  - side
+external:
+externalTypes:
+slots:
+  default: <Placeholder class="h-96" />
+props:
+  class: '!min-h-96 h-136'
+  side: 'right'
+  resizable: true
+  collapsible: true
+  defaultSize: 35
+---
+<Placeholder class="h-136" />
 ::
 
 ::tip
@@ -178,25 +118,34 @@ TODO
 
 使用 `min-size`、`max-size`、`default-size` 和 `collapsed-size` props 自定义侧边栏的大小。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UDashboardSidebar
-    resizable
-    collapsible
-    :min-size="22"
-    :default-size="35"
-    :max-size="40"
-    :collapsed-size="0"
-  >
-    <Placeholder class="h-96" />
-  </UDashboardSidebar>
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+class: '!p-0 !justify-start'
+ignore:
+  - class
+  - side
+  - resizable
+  - collapsible
+hide:
+  - class
+  - side
+external:
+externalTypes:
+slots:
+  default: <Placeholder class="h-96" />
+props:
+  class: '!min-h-96 h-136'
+  side: 'right'
+  resizable: true
+  collapsible: true
+  minSize: 20
+  defaultSize: 35
+  maxSize: 50
+  collapsedSize: 0
+---
+<Placeholder class="h-136" />
 ::
 
 ::note
@@ -207,18 +156,32 @@ TODO
 
 使用 `side` prop 更改侧边栏的侧边位置。默认为 `left`。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UDashboardSidebar side="right" resizable collapsible>
-    <Placeholder class="h-96" />
-  </UDashboardSidebar>
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+class: '!p-0 !justify-start'
+ignore:
+  - class
+hide:
+  - class
+  - defaultSize
+  - minSize
+  - maxSize
+external:
+externalTypes:
+slots:
+  default: <Placeholder class="h-96" />
+props:
+  class: '!min-h-96 h-136'
+  side: 'right'
+  resizable: true
+  collapsible: true
+  minSize: 20
+  defaultSize: 35
+  maxSize: 50
+---
+<Placeholder class="h-136" />
 ::
 
 ### 模式 (Mode)
@@ -231,53 +194,23 @@ TODO
 你可以使用 `menu` prop 自定义侧边栏菜单，它会根据你选择的模式进行调整。
 ::
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-import type { NavigationMenuItem } from '@nuxt/ui'
-
-defineProps<{
-  mode: 'drawer' | 'slideover' | 'modal'
-}>()
-
-const items: NavigationMenuItem[] = [{
-  label: '首页',
-  icon: 'i-lucide-house',
-  active: true
-}, {
-  label: '收件箱',
-  icon: 'i-lucide-inbox'
-}, {
-  label: '联系人',
-  icon: 'i-lucide-users'
-}]
-</script>
-
-<template>
-  <UDashboardGroup>
-    <UDashboardSidebar :mode="mode">
-      <template #header>
-        <LogoPro class="h-5 w-auto" />
-      </template>
-
-      <UNavigationMenu
-        :items="items"
-        orientation="vertical"
-      />
-    </UDashboardSidebar>
-
-    <UDashboardPanel>
-      <template #header>
-        <UDashboardNavbar title="Dashboard" />
-      </template>
-    </UDashboardPanel>
-  </UDashboardGroup>
-</template>
-```
+::component-example
+---
+name: 'dashboard-sidebar-mode-example'
+collapse: true
+iframe:
+  height: 500px
+iframeMobile: true
+options:
+  - name: 'mode'
+    label: 'mode'
+    items:
+      - 'modal'
+      - 'slideover'
+      - 'drawer'
+    default: 'drawer'
+    multi: false
+---
 ::
 
 ::note
@@ -290,106 +223,32 @@ const items: NavigationMenuItem[] = [{
 
 你可以传递 `Button` 组件的任何属性来自定义它。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-import type { NavigationMenuItem } from '@nuxt/ui'
-
-const items: NavigationMenuItem[] = [{
-  label: '首页',
-  icon: 'i-lucide-house',
-  active: true
-}, {
-  label: '收件箱',
-  icon: 'i-lucide-inbox'
-}, {
-  label: '联系人',
-  icon: 'i-lucide-users'
-}]
-</script>
-
-<template>
-  <UDashboardGroup>
-    <UDashboardSidebar
-      open
-      :toggle="{
-        color: 'primary',
-        variant: 'subtle',
-        class: 'rounded-full'
-      }"
-    >
-      <template #header>
-        <LogoPro class="h-5 w-auto" />
-      </template>
-
-      <UNavigationMenu
-        :items="items"
-        orientation="vertical"
-      />
-    </UDashboardSidebar>
-
-    <UDashboardPanel>
-      <template #header>
-        <UDashboardNavbar title="Dashboard" />
-      </template>
-    </UDashboardPanel>
-  </UDashboardGroup>
-</template>
-```
+::component-example
+---
+name: 'dashboard-sidebar-toggle-example'
+collapse: true
+iframe:
+  height: 500px
+iframeMobile: true
+props:
+  class: 'w-full'
+---
 ::
 
 ### 切换侧边 (Toggle Side)
 
 使用 `toggle-side` prop 更改切换按钮的侧边位置。默认为 `left`。
 
-::code-preview
-
-#code
-```vue
-<script setup lang="ts">
-import type { NavigationMenuItem } from '@nuxt/ui'
-
-const items: NavigationMenuItem[] = [{
-  label: '首页',
-  icon: 'i-lucide-house',
-  active: true
-}, {
-  label: '收件箱',
-  icon: 'i-lucide-inbox'
-}, {
-  label: '联系人',
-  icon: 'i-lucide-users'
-}]
-</script>
-
-<template>
-  <UDashboardGroup>
-    <UDashboardSidebar
-      open
-      toggle-side="right"
-    >
-      <template #header>
-        <LogoPro class="h-5 w-auto" />
-      </template>
-
-      <UNavigationMenu
-        :items="items"
-        orientation="vertical"
-      />
-    </UDashboardSidebar>
-
-    <UDashboardPanel>
-      <template #header>
-        <UDashboardNavbar title="Dashboard" />
-      </template>
-    </UDashboardPanel>
-  </UDashboardGroup>
-</template>
-```
+::component-example
+---
+name: 'dashboard-sidebar-toggle-side-example'
+collapse: true
+iframe:
+  height: 500px
+iframeMobile: true
+props:
+  class: 'w-full'
+---
 ::
 
 ## 示例 (Examples)
@@ -398,47 +257,15 @@ const items: NavigationMenuItem[] = [{
 
 你可以使用 `open` prop 或 `v-model:open` 指令来控制打开状态。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-import type { NavigationMenuItem } from '@nuxt/ui'
-
-const items: NavigationMenuItem[] = [{
-  label: '首页',
-  icon: 'i-lucide-house',
-  active: true
-}, {
-  label: '收件箱',
-  icon: 'i-lucide-inbox'
-}, {
-  label: '联系人',
-  icon: 'i-lucide-users'
-}]
-
-const open = ref(true)
-
-defineShortcuts({
-  o: () => open.value = !open.value
-})
-</script>
-
-<template>
-  <UDashboardSidebar v-model:open="open">
-    <template #header>
-      <LogoPro class="h-5 w-auto" />
-    </template>
-
-    <UNavigationMenu
-      :items="items"
-      orientation="vertical"
-    />
-  </UDashboardSidebar>
-</template>
-```
+::component-example
+---
+name: 'dashboard-sidebar-open-state-example'
+collapse: true
+class: '!p-0 !justify-start'
+iframe:
+  height: 500px
+iframeMobile: true
+---
 ::
 
 ::note
@@ -449,48 +276,15 @@ defineShortcuts({
 
 你可以使用 `collapsed` prop 或 `v-model:collapsed` 指令来控制折叠状态。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-import type { NavigationMenuItem } from '@nuxt/ui'
-
-const items: NavigationMenuItem[] = [{
-  label: '首页',
-  icon: 'i-lucide-house',
-  active: true
-}, {
-  label: '收件箱',
-  icon: 'i-lucide-inbox'
-}, {
-  label: '联系人',
-  icon: 'i-lucide-users'
-}]
-
-const collapsed = ref(false)
-
-defineShortcuts({
-  c: () => collapsed.value = !collapsed.value
-})
-</script>
-
-<template>
-  <UDashboardSidebar v-model:collapsed="collapsed" collapsible>
-    <template #header>
-      <LogoPro class="h-5 w-auto" :collapsed="collapsed" />
-    </template>
-
-    <UNavigationMenu
-      :collapsed="collapsed"
-      :items="items"
-      orientation="vertical"
-    />
-  </UDashboardSidebar>
-</template>
-```
+::component-example
+---
+name: 'dashboard-sidebar-collapsed-example'
+collapse: true
+class: '!p-0 !justify-start'
+props:
+  class: 'min-h-svh min-w-16 w-(--width) shrink-0 border-r border-default !min-h-96 h-136'
+  defaultSize: 35
+---
 ::
 
 ::note

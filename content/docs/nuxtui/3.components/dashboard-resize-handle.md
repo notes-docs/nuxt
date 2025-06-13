@@ -17,12 +17,12 @@ links:
 
 ## 示例 (Examples)
 
-### 在 `resize-handle` 插槽中 (Within `resize-handle` slot)
+### 在 `resize-handle` 插槽中
 
-尽管此组件在设置 `resizable` 属性时会自动显示，但你可以使用 `DashboardSidebar` 和 `DashboardPanel` 组件的 `resize-handle` 插槽来**自定义手柄**。
+尽管此组件在设置 `resizable` 属性时会自动显示，但你可以使用 `DashboardSidebar` 和 `DashboardPanel` 组件的 `resize-handle` 插槽来 **自定义手柄**。
 
 ::code-group
-```vue [layouts/dashboard.vue]
+```vue{4-10} [layouts/dashboard.vue]
 <template>
   <UDashboardGroup>
     <UDashboardSidebar resizable>
@@ -40,7 +40,7 @@ links:
 </template>
 ```
 
-```vue [pages/index.vue]
+```vue{9-15} [pages/index.vue]
 <script setup lang="ts">
 definePageMeta({
   layout: 'dashboard'

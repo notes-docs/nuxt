@@ -10,6 +10,7 @@ links:
   - label: GitHub
     icon: i-simple-icons-github
     to: https://github.com/nuxt/ui-pro/tree/v3/src/runtime/components/ChatPromptSubmit.vue
+navigation.badge: New
 ---
 
 ## 用法 (Usage)
@@ -20,7 +21,9 @@ links:
 
 ::code-preview
 
-TODO
+:::u-chat-prompt
+:u-chat-prompt-submit
+:::
 
 #code
 ```vue
@@ -44,16 +47,36 @@ TODO
 * `variant="solid"`
 * `icon="i-lucide-arrow-up"`
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UChatPromptSubmit color="primary" variant="solid" icon="i-lucide-arrow-up" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+hide:
+  - class
+external:
+externalTypes:
+items:
+  color:
+    - primary
+    - secondary
+    - success
+    - warning
+    - error
+    - neutral
+  variant:
+    - solid
+    - outline
+    - soft
+    - subtle
+    - ghost
+props:
+  class: 'max-w-md'
+  color: 'primary'
+  variant: 'solid'
+  icon: 'i-lucide-arrow-up'
+---
 ::
 
 ::tip
@@ -72,23 +95,39 @@ TODO
 当用户点击按钮时，会发出 `stop` 事件。
 ::
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UChatPromptSubmit
-    submitted-color="neutral"
-    submitted-variant="subtle"
-    submitted-icon="i-lucide-square"
-    status="submitted"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - status
+hide:
+  - class
+external:
+externalTypes:
+items:
+  submitted-color:
+    - primary
+    - secondary
+    - success
+    - warning
+    - error
+    - neutral
+  submitted-variant:
+    - solid
+    - outline
+    - soft
+    - subtle
+    - ghost
+props:
+  class: 'max-w-md'
+  submitted-color: "neutral"
+  submitted-variant: "subtle"
+  submitted-icon: "i-lucide-square"
+  status: "submitted"
+---
 ::
-
 
 ::tip
 你可以在 `app.config.ts` 中的 `ui.icons.stop` 键下全局自定义此图标。
@@ -106,23 +145,39 @@ TODO
 当用户点击按钮时，会发出 `stop` 事件。
 ::
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UChatPromptSubmit
-    streaming-color="neutral"
-    streaming-variant="subtle"
-    streaming-icon="i-lucide-square"
-    status="streaming"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - status
+hide:
+  - class
+external:
+externalTypes:
+items:
+  streaming-color:
+  - primary
+  - secondary
+  - success
+  - warning
+  - error
+  - neutral
+  streaming-variant:
+  - solid
+  - outline
+  - soft
+  - subtle
+  - ghost
+props:
+  class: 'max-w-md'
+  streaming-color: "neutral"
+  streaming-variant: "subtle"
+  streaming-icon: "i-lucide-square"
+  status: "streaming"
+---
 ::
-
 
 ::tip
 你可以在 `app.config.ts` 中的 `ui.icons.stop` 键下全局自定义此图标。
@@ -140,23 +195,39 @@ TODO
 当用户点击按钮时，会发出 `reload` 事件。
 ::
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UChatPromptSubmit
-    error-color="error"
-    error-variant="soft"
-    error-icon="i-lucide-rotate-ccw"
-    status="error"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - status
+hide:
+  - class
+external:
+externalTypes:
+items:
+  error-color:
+    - primary
+    - secondary
+    - success
+    - warning
+    - error
+    - neutral
+  error-variant:
+    - solid
+    - outline
+    - soft
+    - subtle
+    - ghost
+props:
+  class: 'max-w-md'
+  error-color: "error"
+  error-variant: "soft"
+  error-icon: "i-lucide-rotate-ccw"
+  status: "error"
+---
 ::
-
 
 ::tip
 你可以在 `app.config.ts` 中的 `ui.icons.reload` 键下全局自定义此图标。

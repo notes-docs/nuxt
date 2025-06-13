@@ -35,54 +35,14 @@ definePageMeta({
 
 使用 `left`、`default` 和 `right` 插槽来自定义工具栏。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-import type { NavigationMenuItem } from '@nuxt/ui'
-
-const items: NavigationMenuItem[][] = [
-  [
-    {
-      label: '通用',
-      icon: 'i-lucide-user',
-      active: true
-    },
-    {
-      label: '成员',
-      icon: 'i-lucide-users'
-    },
-    {
-      label: '通知',
-      icon: 'i-lucide-bell'
-    }
-  ],
-  [
-    {
-      label: '文档',
-      icon: 'i-lucide-book-open',
-      to: 'https://ui.nuxt.com/getting-started/installation/pro/nuxt',
-      target: '_blank'
-    },
-    {
-      label: '立即购买',
-      icon: 'i-lucide-shopping-cart',
-      to: 'https://ui.nuxt.com/pro/purchase',
-      target: '_blank'
-    }
-  ]
-]
-</script>
-
-<template>
-  <UDashboardToolbar>
-    <UNavigationMenu :items="items" highlight class="flex-1" />
-  </UDashboardToolbar>
-</template>
-```
+::component-example
+---
+name: 'dashboard-toolbar-example'
+class: '!px-0 !pt-0'
+collapse: true
+props:
+  class: 'w-full'
+---
 ::
 
 ::note

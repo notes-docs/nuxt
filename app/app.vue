@@ -95,7 +95,9 @@ onMounted(() => {
 <!--        }-->
 <!--      ]"-->
 <!--    />-->
-    <AppHeader />
+    <template v-if="!route.path.startsWith('/examples')">
+      <AppHeader />
+    </template>
 
     <UMain class="relative">
       <HeroBackground
@@ -108,8 +110,9 @@ onMounted(() => {
 
       <NuxtPage />
     </UMain>
-    <AppFooter />
-
+    <template v-if="!route.path.startsWith('/examples')">
+      <AppFooter />
+    </template>
     <ClientOnly>
       <LazyUContentSearch
         v-model:search-term="searchTerm"

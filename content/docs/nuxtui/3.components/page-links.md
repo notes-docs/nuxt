@@ -22,76 +22,65 @@ links:
 
 你可以传递 `Link` 组件的任何属性，例如 `to`、`target` 等。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-import type { PageLink } from '@nuxt/ui-pro'
-
-const links = ref<PageLink[]>([
-  {
-    label: 'Edit this page',
-    icon: 'i-lucide-file-pen',
-    to: 'https://github.com/nuxt/ui-pro/tree/v3/docs/content/3.components/page-links.md'
-  },
-  {
-    label: 'Star on GitHub',
-    icon: 'i-lucide-star',
-    to: 'https://github.com/nuxt/ui'
-  },
-  {
-    label: 'Roadmap',
-    icon: 'i-lucide-map',
-    to: '/roadmap'
-  }
-])
-</script>
-
-<template>
-  <UPageLinks :links="links" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - links
+hide:
+  - class
+external:
+  - links
+externalTypes:
+  - PageLink[]
+props:
+  class: 'w-ful'
+  links:
+    - label: 'Edit this page'
+      icon: 'i-lucide-file-pen'
+      to: 'https://github.com/nuxt/ui-pro/tree/v3/docs/content/3.components/page-links.md'
+    - label: 'Star on GitHub'
+      icon: 'i-lucide-star'
+      to: 'https://github.com/nuxt/ui'
+    - label: 'Roadmap'
+      icon: 'i-lucide-map'
+      to: '/roadmap'
+---
 ::
 
 ### **标题**
 
 使用 `title` 属性在链接上方显示标题。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-import type { PageLink } from '@nuxt/ui-pro'
-
-const links = ref<PageLink[]>([
-  {
-    label: 'Edit this page',
-    icon: 'i-lucide-file-pen',
-    to: 'https://github.com/nuxt/ui-pro/tree/v3/docs/content/3.components/page-links.md'
-  },
-  {
-    label: 'Star on GitHub',
-    icon: 'i-lucide-star',
-    to: 'https://github.com/nuxt/ui'
-  },
-  {
-    label: 'Roadmap',
-    icon: 'i-lucide-map',
-    to: '/roadmap'
-  }
-])
-</script>
-
-<template>
-  <UPageLinks title="Community" :links="links" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - links
+hide:
+  - class
+external:
+  - links
+externalTypes:
+  - PageLink[]
+props:
+  class: 'w-ful'
+  title: 'Community'
+  links:
+    - label: 'Edit this page'
+      icon: 'i-lucide-file-pen'
+      to: 'https://github.com/nuxt/ui-pro/tree/v3/docs/content/3.components/page-links.md'
+    - label: 'Star on GitHub'
+      icon: 'i-lucide-star'
+      to: 'https://github.com/nuxt/ui'
+    - label: 'Roadmap'
+      icon: 'i-lucide-map'
+      to: '/roadmap'
+---
 ::
 
 ## 示例
@@ -104,7 +93,7 @@ const links = ref<PageLink[]>([
 
 在 `ContentToc` 组件的 `bottom` 插槽中使用 `PageLinks` 组件，以在目录下方显示链接列表。
 
-```vue [pages/[...slug].vue]
+```vue{48-52} [pages/[...slug].vue]
 <script setup lang="ts">
 import type { PageLink } from '@nuxt/ui-pro'
 

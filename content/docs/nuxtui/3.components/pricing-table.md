@@ -7,6 +7,7 @@ links:
   - label: GitHub
     icon: i-simple-icons-github
     to: https://github.com/nuxt/ui-pro/tree/v3/src/runtime/components/PricingTable.vue
+navigation.badge: New
 ---
 
 ## 用法
@@ -29,56 +30,48 @@ TODO
 * `button?`: `ButtonProps` - 配置 CTA 按钮 `{ size: 'lg', block: true }`
 * `highlight?`: `boolean` - 是否将此层级在视觉上强调为推荐选项
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const tiers = ref([
-  {
-    id: 'solo',
-    title: 'Solo',
-    description: '为独立开发者设计。',
-    price: '$249',
-    billingCycle: '/月',
-    billingPeriod: '每年计费',
-    badge: '最受欢迎',
-    button: {
-      label: '立即购买',
-      variant: 'subtle'
-    }
-  },
-  {
-    id: 'team',
-    title: 'Team',
-    description: '为成长型团队设计。',
-    price: '$499',
-    billingCycle: '/月',
-    billingPeriod: '每年计费',
-    button: {
-      label: '立即购买'
-    },
-    highlight: true
-  },
-  {
-    id: 'enterprise',
-    title: 'Enterprise',
-    description: '为大型组织设计。',
-    price: '自定义',
-    button: {
-      label: '联系销售',
-      color: 'neutral'
-    }
-  }
-])
-</script>
-
-<template>
-  <UPricingTable :tiers="tiers" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - tiers
+hide:
+  - class
+external:
+  - tiers
+externalTypes:
+props:
+  class: 'px-4'
+  tiers:
+    - id: 'solo'
+      title: 'Solo'
+      description: 'For indie hackers.'
+      price: '$249'
+      billingCycle: '/month'
+      billingPeriod: 'billed annually'
+      badge: 'Most popular'
+      button:
+        label: 'Buy now'
+        variant: 'subtle'
+    - id: 'team'
+      title: 'Team'
+      description: 'For growing teams.'
+      price: '$499'
+      billingCycle: '/month'
+      billingPeriod: 'billed annually'
+      button:
+        label: 'Buy now'
+      highlight: true
+    - id: 'enterprise'
+      title: 'Enterprise'
+      description: 'For large organizations.'
+      price: 'Custom'
+      button:
+        label: 'Contact sales'
+        color: 'neutral'
+---
 ::
 
 ### 分区
@@ -92,88 +85,97 @@ const tiers = ref([
   * 字符串值将显示为文本（例如，“无限”，“最多 5 个用户”）
   * 数字值将按原样显示（例如，10，100）
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const tiers = ref([
-  {
-    id: 'solo',
-    title: 'Solo',
-    price: '$249',
-    description: '为独立开发者设计。',
-    billingCycle: '/月',
-    button: {
-      label: '立即购买',
-      variant: 'subtle'
-    }
-  },
-  {
-    id: 'team',
-    title: 'Team',
-    price: '$499',
-    description: '为成长型团队设计。',
-    billingCycle: '/月',
-    button: {
-      label: '立即购买'
-    }
-  },
-  {
-    id: 'enterprise',
-    title: 'Enterprise',
-    price: '自定义',
-    description: '为大型组织设计。',
-    button: {
-      label: '联系销售',
+::component-code
+---
+pro: true
+prettier: true
+collapse: true
+ignore:
+  - class
+  - tiers
+  - sections
+hide:
+  - class
+external:
+  - tiers
+  - sections
+externalTypes:
+props:
+  class: 'px-4'
+  tiers:
+    - id: 'solo'
+      title: 'Solo'
+      description: 'For indie hackers.'
+      price: '$249'
+      billingCycle: '/month'
+      billingPeriod: 'billed annually'
+      badge: 'Most popular'
+      button:
+        label: 'Buy now'
+        variant: 'subtle'
+    - id: 'team'
+      title: 'Team'
+      description: 'For growing teams.'
+      price: '$499'
+      billingCycle: '/month'
+      billingPeriod: 'billed annually'
+      button:
+        label: 'Buy now'
+      highlight: true
+    - id: 'enterprise'
+      title: 'Enterprise'
+      description: 'For large organizations.'
+      price: 'Custom'
+      button:
+        label: 'Contact sales'
       color: 'neutral'
-    }
-  }
-])
-const sections = ref([
-  {
-    title: '功能',
-    features: [
-      {
-        title: '开发者数量',
-        tiers: {
-          solo: '1',
-          team: '5',
-          enterprise: '无限'
-        }
-      },
-      {
-        title: '项目',
-        tiers: {
-          solo: true,
-          team: true,
-          enterprise: true
-        }
-      }
-    ]
-  },
-  {
-    title: '安全',
-    features: [
-      {
-        title: 'SSO',
-        tiers: {
-          solo: false,
-          team: true,
-          enterprise: true
-        }
-      }
-    ]
-  }
-])
-</script>
+  sections:
+    - title: 'Features'
+      features:
+        - title: 'Number of developers'
+          tiers:
+            solo: '1'
+            team: '5'
+            enterprise: 'Unlimited'
+        - title: 'Projects'
+          tiers:
+            solo: true
+            team: true
+            enterprise: true
+    - title: 'Security'
+      features:
+        - title: 'SSO'
+          tiers:
+            solo: false
+            team: true
+            enterprise: true
+---
+::
 
-<template>
-  <UPricingTable :tiers="tiers" :sections="sections" />
-</template>
-```
+## 示例
+
+### 插槽
+
+PricingTable 组件提供了强大的插槽定制选项，可以根据您的内容量身定制显示效果。您可以使用通用插槽定制单个元素，或者使用其 ID 定位特定项目。
+
+::component-example
+---
+name: 'pricing-table-example'
+collapse: true
+---
+::
+
+该组件支持多种插槽类型，以实现最大的定制灵活性：
+
+| 插槽类型  | 匹配模式                                          | 描述  | 示例 |
+|---|-----------------------------------------------|---|---|
+| Tier slots  | `#{tier-id}-{element}`                          | 定位特定层级  | `#team-title`、`#solo-price`  |
+| Section slots  | `#section-{id\|formatted-title}-title`          | 定位特定部分  | `#section-features-title`  |
+| Feature slots  | `#feature-{id\|formatted-title}-{title \|value}` | 定位特定功能  | `#feature-developers-title`  |
+| Generic slots  | `#tier-title`、`#section-title`                    | 应用于所有项目  | `#feature-value`  |
+
+::note
+当未提供 `id` 时，插槽名称会从标题自动生成（例如，“Premium Features!” 会变成 `#section-premium-features-title`）。
 ::
 
 ## API

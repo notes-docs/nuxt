@@ -11,11 +11,16 @@ const { framework, module } = useSharedData()
 
 // 定义页面元信息，设置 heroBackground 的透明度
 definePageMeta({
-  heroBackground: 'opacity-30'
+  heroBackground: 'opacity-30',
+  key: 'ui'
 })
 
+// 计算属性 path 去除末尾斜杠
+const path = computed(() => route.path.replace(/\/$/, ''))
+
 // 使用异步数据加载当前页面的内容
-const { data: page } = await useAsyncData(kebabCase(route.path), () => queryCollection('ui').path(route.path).first())
+const { data: page } = await useAsyncData(kebabCase(route.path), () => queryCollection('ui').path(route.path).first(), { watch: [path] })
+
 if (!page.value) {
   // 如果页面内容不存在，则抛出 404 错误
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
@@ -154,7 +159,7 @@ const communityLinks = computed(() => [{
 </script>
 
 <template>
-  <UContainer>
+  <UContainer v-if="page">
     <UPage>
       <template #left>
         <UPageAside>
@@ -177,7 +182,7 @@ const communityLinks = computed(() => [{
         </UPageAside>
       </template>
 
-      <UPage v-if="page">
+      <UPage>
         <UPageHeader>
           <template #headline>
             <UBreadcrumb :items="breadcrumb" />

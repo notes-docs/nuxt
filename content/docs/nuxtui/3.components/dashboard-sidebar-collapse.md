@@ -16,30 +16,35 @@ links:
 
 `DashboardSidebarCollapse` 组件用于 **折叠/展开** `DashboardSidebar` 组件，前提是该组件的 `collapsible` 属性已设置。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UDashboardSidebarCollapse />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+hide:
+  - class
+external:
+externalTypes:
+---
 ::
 
 它扩展了 `Button` 组件，因此你可以传递任何属性，例如 `color`、`variant`、`size` 等。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UDashboardSidebarCollapse variant="subtle" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - variant
+hide:
+  - class
+external:
+externalTypes:
+props:
+  variant: 'subtle'
+---
 ::
 
 ::note

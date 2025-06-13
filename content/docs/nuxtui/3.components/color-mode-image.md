@@ -13,21 +13,26 @@ links:
 
 `ColorModeImage` 组件在安装 `@nuxt/image` 时使用 `<NuxtImg>` 组件，否则回退到 `img` 标签。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UColorModeImage
-    light="https://picsum.photos/id/29/400"
-    dark="https://picsum.photos/id/46/400"
-    :width="200"
-    :height="200"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prefix: 'color-mode'
+prettier: true
+ignore:
+  - class
+  - width
+  - height
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'max-w-md'
+  light: 'https://picsum.photos/id/29/400'
+  dark: 'https://picsum.photos/id/46/400'
+  width: 200
+  height: 200
+---
 ::
 
 ::note

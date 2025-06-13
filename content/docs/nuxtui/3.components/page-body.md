@@ -35,7 +35,7 @@ links:
 
 在页面中使用 `PageBody` 组件来显示页面内容：
 
-```vue[pages/[...slug].vue]
+```vue{21-27} [pages/[...slug].vue]
 <script setup lang="ts">
 const route = useRoute()
 

@@ -15,7 +15,7 @@ links:
 
 在布局文件或 `app.vue` 中使用它：
 
-```vue [layouts/dashboard.vue]
+```vue{2,6} [layouts/dashboard.vue]
 <template>
   <UDashboardGroup>
     <UDashboardSidebar />

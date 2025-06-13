@@ -148,7 +148,7 @@ export default defineConfig({
 ${strippedCompoundVariants.value
   ? `
 ::callout{icon="i-simple-icons-github" to="${themeLink.value}" title="Compound variants"}
-Some colors in \`compoundVariants\` are omitted for readability. Check out the source code on GitHub.
+为了可读性，\`compoundVariants\` 中的某些颜色被省略。请查看 GitHub 上的源代码。
 ::`
   : ''}
 `

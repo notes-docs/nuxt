@@ -20,30 +20,29 @@ links:
 
 它会自动在移动设备上显示以切换侧边栏，**你无需手动添加它**。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UDashboardSidebarToggle />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+---
 ::
 
 它扩展了 `Button` 组件，因此你可以传递任何属性，例如 `color`、`variant`、`size` 等。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UDashboardSidebarToggle variant="subtle" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - variant
+hide:
+  - class
+external:
+externalTypes:
+props:
+  variant: 'subtle'
+---
 ::
 
 ::note
@@ -57,7 +56,7 @@ TODO
 尽管此组件会自动在移动设备上显示，但你可以使用 `DashboardNavbar` 和 `DashboardSidebar` 组件的 `toggle` 插槽来**自定义按钮**。
 
 ::code-group
-```vue [layouts/dashboard.vue]
+```vue{4-6} [layouts/dashboard.vue]
 <template>
   <UDashboardGroup>
     <UDashboardSidebar>
@@ -71,7 +70,7 @@ TODO
 </template>
 ```
 
-```vue [pages/index.vue]
+```vue{11-13} [pages/index.vue]
 <script setup lang="ts">
 definePageMeta({
   layout: 'dashboard'

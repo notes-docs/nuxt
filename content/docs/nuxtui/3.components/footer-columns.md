@@ -16,7 +16,7 @@ links:
 
 在 `Footer` 组件的 `top` 插槽中使用它：
 
-```vue
+```vue{3-7}
 <template>
   <UFooter>
     <template #top>
@@ -44,78 +44,14 @@ links:
 
 你可以传递 `Link` 组件的任何属性，例如 `to`、`target` 等。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-import type { FooterColumn } from '@nuxt/ui-pro'
-
-const columns: FooterColumn[] = [
-  {
-    label: '社区',
-    children: [
-      {
-        label: 'Nuxters',
-        to: 'https://nuxters.nuxt.com',
-        target: '_blank'
-      },
-      {
-        label: '视频课程',
-        to: 'https://masteringnuxt.com/nuxt3?ref=nuxt',
-        target: '_blank'
-      },
-      {
-        label: 'GitHub 上的 Nuxt',
-        to: 'https://github.com/nuxt',
-        target: '_blank'
-      }
-    ]
-  },
-  {
-    label: '解决方案',
-    children: [
-      {
-        label: 'Nuxt Content',
-        to: 'https://content.nuxt.com/',
-        target: '_blank'
-      },
-      {
-        label: 'Nuxt DevTools',
-        to: 'https://devtools.nuxt.com/',
-        target: '_blank'
-      },
-      {
-        label: 'Nuxt Image',
-        to: 'https://image.nuxt.com/',
-        target: '_blank'
-      },
-      {
-        label: 'Nuxt UI',
-        to: 'https://ui.nuxt.com/',
-        target: '_blank'
-      }
-    ]
-  }
-]
-</script>
-
-<template>
-  <UFooterColumns :columns="columns">
-    <template #right>
-      <UFormField name="email" label="订阅我们的新闻通讯" size="lg">
-        <UInput type="email" class="w-full">
-          <template #trailing>
-            <UButton type="submit" size="xs" color="neutral" label="订阅" />
-          </template>
-        </UInput>
-      </UFormField>
-    </template>
-  </UFooterColumns>
-</template>
-```
+::component-example
+---
+name: 'footer-columns-example'
+class: 'p-4 p-8'
+collapse: true
+props:
+  class: 'w-full'
+---
 ::
 
 ## API

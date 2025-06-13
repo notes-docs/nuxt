@@ -30,22 +30,23 @@ links:
 在大多数情况下，你会在 `error.vue` 文件中接收到 `error` prop。
 ::
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UError
-    :error="{
-      statusCode: 404,
-      statusMessage: 'Page not found',
-      message: 'The page you are looking for does not exist.'
-    }"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: '!min-h-96'
+  error:
+    statusCode: 404
+    statusMessage: 'Page not found'
+    message: 'The page you are looking for does not exist.'
+---
 ::
 
 ### 清除 (Clear)
@@ -54,51 +55,62 @@ TODO
 
 你可以传递 `Button` 组件的任何属性来自定义它。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UError
-    :clear="{
-      color: 'neutral',
-      size: 'xl',
-      icon: 'i-lucide-arrow-left',
-      class: 'rounded-full'
-    }"
-    :error="{
-      statusCode: 404,
-      statusMessage: 'Page not found',
-      message: 'The page you are looking for does not exist.'
-    }"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - clear.color
+  - clear.size
+  - clear.icon
+  - clear.class
+  - error.statusCode
+  - error.statusMessage
+  - error.message
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: '!min-h-96'
+  clear:
+    color: 'neutral'
+    size: 'xl'
+    icon: 'i-lucide-arrow-left'
+    class: 'rounded-full'
+  error:
+    statusCode: 404
+    statusMessage: 'Page not found'
+    message: 'The page you are looking for does not exist.'
+---
 ::
 
 ### 重定向 (Redirect)
 
 使用 `redirect` prop 在点击清除按钮时将用户重定向到不同的页面。默认为 `/`。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UError
-    redirect="/getting-started"
-    :error="{
-      statusCode: 404,
-      statusMessage: 'Page not found',
-      message: 'The page you are looking for does not exist.'
-    }"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - error.statusCode
+  - error.statusMessage
+  - error.message
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: '!min-h-96'
+  redirect: '/getting-started'
+  error:
+    statusCode: 404
+    statusMessage: 'Page not found'
+    message: 'The page you are looking for does not exist.'
+---
 ::
 
 ## 示例 (Examples)
@@ -107,7 +119,7 @@ TODO
 
 在你的 `error.vue` 中使用 `Error` 组件：
 
-```vue [error.vue]
+```vue{13} [error.vue]
 <script setup lang="ts">
 import type { NuxtError } from '#app'
 

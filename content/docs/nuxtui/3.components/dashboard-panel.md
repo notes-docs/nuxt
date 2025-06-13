@@ -15,7 +15,7 @@ links:
 
 在 `DashboardGroup` 组件的默认插槽中使用它，你可以将多个面板并排放置：
 
-```vue [pages/index.vue]
+```vue{8,10} [pages/index.vue]
 <script setup lang="ts">
 definePageMeta({
   layout: 'dashboard'
@@ -35,28 +35,12 @@ definePageMeta({
 
 使用 `header`、`body` 和 `footer` 插槽来自定义面板，如果你不希望有可滚动的带内边距的主体，也可以使用默认插槽。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UDashboardPanel resizable>
-    <template #header>
-      <UDashboardNavbar title="Inbox">
-        <template #leading>
-          <UDashboardSidebarCollapse />
-        </template>
-      </UDashboardNavbar>
-    </template>
-
-    <template #body>
-      <Placeholder class="h-full" />
-    </template>
-  </UDashboardPanel>
-</template>
-```
+::component-example
+---
+name: 'dashboard-panel-example'
+class: '!p-0 !justify-start'
+collapse: true
+---
 ::
 
 ::note
@@ -68,40 +52,61 @@ TODO
 
 使用 `resizable` prop 使面板可调整大小。
 
-::code-preview
+::component-code
+---
+pro: true
+prettier: true
+class: '!p-0 !justify-start'
+ignore:
+  - class
+  - defaultSize
+  - maxSize
+  - minSize
+hide:
+  - class
+external:
+externalTypes:
+slots:
+  body: <Placeholder class="h-96" />
 
-TODO
-
-#code
-```vue
-<template>
-  <UDashboardPanel resizable>
-    <template #body>
-      <Placeholder class="h-96" />
-    </template>
-  </UDashboardPanel>
-</template>
-```
+props:
+  defaultSize: 35
+  minSize: 20
+  maxSize: 50
+  class: 'shrink-0 w-full lg:w-(--width) !min-h-96 h-136'
+  resizable: true
+---
+#body
+<Placeholder class="h-96" />
 ::
 
 ### 大小 (Size)
 
 使用 `min-size`、`max-size` 和 `default-size` props 来自定义面板的大小。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UDashboardPanel resizable>
-    <template #body>
-      <Placeholder class="h-96" />
-    </template>
-  </UDashboardPanel>
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+class: '!p-0 !justify-start'
+ignore:
+  - class
+  - resizable
+hide:
+  - class
+external:
+externalTypes:
+slots:
+  body: <Placeholder class="h-96" />
+props:
+  class: 'shrink-0 w-full lg:w-(--width) !min-h-96 h-136'
+  resizable: true
+  minSize: 22
+  defaultSize: 35
+  maxSize: 40
+---
+#body
+<Placeholder class="h-96" />
 ::
 
 ## API

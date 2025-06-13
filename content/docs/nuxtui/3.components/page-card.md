@@ -13,108 +13,143 @@ links:
 
 `PageCard` 组件提供了一种灵活的方式，可以在卡片中显示内容，并在默认插槽中包含插图。
 
-TODO
+::component-example
+---
+name: 'page-card-example'
+source: false
+class: 'border border-muted relative p-4 rounded-md'
+props:
+  class: 'w-96'
+---
+::
 
+::tip
 你可以使用 `PageGrid`、`PageColumns` 或 `PageList` 组件来显示多个 `PageCard`。
+::
 
 ### **标题**
 
 使用 `title` 属性设置卡片的标题。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UPageCard title="Tailwind CSS" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'w-96'
+  title: 'Tailwind CSS'
+---
 ::
 
 ### **描述**
 
 使用 `description` 属性设置卡片的描述。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UPageCard
-    title="Tailwind CSS"
-    description="Nuxt UI v3 integrates with latest Tailwind CSS v4, bringing significant improvements."
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'w-96'
+  title: 'Tailwind CSS'
+  description: "Nuxt UI v3 integrates with latest Tailwind CSS v4, bringing significant improvements."
+---
 ::
 
 ### **图标**
 
 使用 `icon` 属性设置卡片的图标。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UPageCard
-    title="Tailwind CSS"
-    description="Nuxt UI v3 integrates with latest Tailwind CSS v4, bringing significant improvements."
-    icon="i-simple-icons-tailwindcss"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'w-96'
+  title: 'Tailwind CSS'
+  description: "Nuxt UI v3 integrates with latest Tailwind CSS v4, bringing significant improvements."
+  icon: 'i-simple-icons-tailwindcss'
+---
 ::
 
 ### **链接**
 
 你可以传递 `<NuxtLink>` 组件的任何属性，例如 `to`、`target`、`rel` 等。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UPageCard
-    title="Tailwind CSS"
-    description="Nuxt UI v3 integrates with latest Tailwind CSS v4, bringing significant improvements."
-    icon="i-simple-icons-tailwindcss"
-    to="https://tailwindcss.com/docs/v4-beta"
-    target="_blank"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+  - icon
+  - target
+  - to
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'w-96'
+  title: 'Tailwind CSS'
+  description: "Nuxt UI v3 integrates with latest Tailwind CSS v4, bringing significant improvements."
+  icon: 'i-simple-icons-tailwindcss'
+  to: 'https://tailwindcss.com/docs/v4-beta'
+  target: '_blank'
+---
 ::
 
 ### **变体**
 
 使用 `variant` 属性更改卡片的样式。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UPageCard
-    title="Tailwind CSS"
-    description="Nuxt UI v3 integrates with latest Tailwind CSS v4, bringing significant improvements."
-    icon="i-simple-icons-tailwindcss"
-    to="https://tailwindcss.com/docs/v4-beta"
-    target="_blank"
-    variant="soft"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+  - icon
+  - target
+  - to
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'w-96'
+  title: 'Tailwind CSS'
+  description: "Nuxt UI v3 integrates with latest Tailwind CSS v4, bringing significant improvements."
+  icon: 'i-simple-icons-tailwindcss'
+  to: 'https://tailwindcss.com/docs/v4-beta'
+  target: '_blank'
+  variant: 'soft'
+---
 ::
 
 ::tip
@@ -125,72 +160,88 @@ TODO
 
 使用 `orientation` 属性更改默认插槽的方向。默认为 `vertical`。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UPageCard
-    title="Tailwind CSS"
-    description="Nuxt UI v3 integrates with latest Tailwind CSS v4, bringing significant improvements."
-    icon="i-simple-icons-tailwindcss"
-    orientation="horizontal"
-  >
-    <img src="/tailwindcss-v4.svg" alt="Tailwind CSS" class="w-full" />
-  </UPageCard>
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+  - icon
+hide:
+  - class
+external:
+externalTypes:
+slots:
+  default: <img src="/tailwindcss-v4.svg" alt="Tailwind CSS" class="w-full" />
+props:
+  title: 'Tailwind CSS'
+  description: "Nuxt UI v3 integrates with latest Tailwind CSS v4, bringing significant improvements."
+  icon: 'i-simple-icons-tailwindcss'
+  orientation: "horizontal"
+---
+<img src="/nuxtui/tailwindcss-v4.svg" alt="Tailwind CSS" class="w-full" />
 ::
 
 ### **反转**
 
 使用 `reverse` 属性反转默认插槽的方向。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UPageCard
-    title="Tailwind CSS"
-    description="Nuxt UI v3 integrates with latest Tailwind CSS v4, bringing significant improvements."
-    icon="i-simple-icons-tailwindcss"
-    orientation="horizontal"
-    reverse
-  >
-    <img src="/tailwindcss-v4.svg" alt="Tailwind CSS" class="w-full" />
-  </UPageCard>
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+  - icon
+hide:
+  - class
+external:
+externalTypes:
+slots:
+  default: <img src="/tailwindcss-v4.svg" alt="Tailwind CSS" class="w-full" />
+props:
+  title: 'Tailwind CSS'
+  description: "Nuxt UI v3 integrates with latest Tailwind CSS v4, bringing significant improvements."
+  icon: 'i-simple-icons-tailwindcss'
+  orientation: "horizontal"
+  reverse: true
+---
+<img src="/nuxtui/tailwindcss-v4.svg" alt="Tailwind CSS" class="w-full" />
 ::
 
 ### **高亮**
 
 使用 `highlight` 和 `highlight-color` 属性在卡片周围显示高亮边框。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UPageCard
-    title="Tailwind CSS"
-    description="Nuxt UI v3 integrates with latest Tailwind CSS v4, bringing significant improvements."
-    icon="i-simple-icons-tailwindcss"
-    orientation="horizontal"
-    highlight
-    highlight-color="primary"
-  >
-    <img src="/tailwindcss-v4.svg" alt="Tailwind CSS" class="w-full" />
-  </UPageCard>
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+  - icon
+  - orientation
+hide:
+  - class
+external:
+externalTypes:
+slots:
+  default: <img src="/tailwindcss-v4.svg" alt="Tailwind CSS" class="w-full" />
+props:
+  title: 'Tailwind CSS'
+  description: "Nuxt UI v3 integrates with latest Tailwind CSS v4, bringing significant improvements."
+  icon: 'i-simple-icons-tailwindcss'
+  orientation: "horizontal"
+  highlight: true
+  highlightColor: 'primary'
+---
+<img src="/nuxtui/tailwindcss-v4.svg" alt="Tailwind CSS" class="w-full" />
 ::
 
 ### **聚光灯**
@@ -201,25 +252,31 @@ TODO
 当使用 `to` 属性时，聚光灯效果将取代悬停效果。最好与 `outline` 变体一起使用。
 ::
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UPageCard
-    title="Tailwind CSS"
-    description="Nuxt UI v3 integrates with latest Tailwind CSS v4, bringing significant improvements."
-    icon="i-simple-icons-tailwindcss"
-    orientation="horizontal"
-    spotlight
-    spotlight-color="primary"
-  >
-    <img src="/tailwindcss-v4.svg" alt="Tailwind CSS" class="w-full" />
-  </UPageCard>
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+  - icon
+  - orientation
+hide:
+  - class
+external:
+externalTypes:
+slots:
+  default: <img src="/tailwindcss-v4.svg" alt="Tailwind CSS" class="w-full" />
+props:
+  title: 'Tailwind CSS'
+  description: "Nuxt UI v3 integrates with latest Tailwind CSS v4, bringing significant improvements."
+  icon: 'i-simple-icons-tailwindcss'
+  orientation: "horizontal"
+  spotlight: true
+  spotlightColor: 'primary'
+---
+<img src="/nuxtui/tailwindcss-v4.svg" alt="Tailwind CSS" class="w-full" />
 ::
 
 ::tip
@@ -238,34 +295,10 @@ TODO
 
 在 `header` 或 `footer` 插槽中使用 `User` 组件，使卡片看起来像一个推荐信。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const testimonial = ref({
-  user: {
-    name: 'Evan You',
-    description: 'Author of Vue.js and Vite',
-    avatar: {
-      src: 'https://avatars.githubusercontent.com/u/499550?v=4',
-      alt: 'Evan You'
-    }
-  },
-  quote: '“Nuxt on Cloudflare infra with minimal effort - this is huge!”'
-})
-</script>
-
-<template>
-  <UPageCard :description="testimonial.quote" class="w-60">
-    <template #footer>
-      <UUser v-bind="testimonial.user" />
-    </template>
-  </UPageCard>
-</template>
-```
+::component-example
+---
+name: 'page-card-testimonial-example'
+---
 ::
 
 ::tip

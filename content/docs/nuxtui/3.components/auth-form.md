@@ -18,186 +18,101 @@ links:
 
 表单将根据 `fields` prop 自行构建，状态将在内部处理。你可以将传递给 [FormField](/ui/components/form-field#props) 或 [Input](/ui/components/input#props) 的所有 prop 传递给每个字段。
 
-::code-preview
-
-TODO
-
-#code
-:::code-collapse
-```vue
-<script setup lang="ts">
-import * as z from 'zod'
-import type { FormSubmitEvent } from '@nuxt/ui'
-
-const toast = useToast()
-
-const fields = [{
-  name: 'email',
-  type: 'text' as const,
-  label: 'Email',
-  placeholder: 'Enter your email',
-  required: true
-}, {
-  name: 'password',
-  label: 'Password',
-  type: 'password' as const,
-  placeholder: 'Enter your password'
-}, {
-  name: 'remember',
-  label: 'Remember me',
-  type: 'checkbox' as const
-}]
-
-const providers = [{
-  label: 'Google',
-  icon: 'i-simple-icons-google',
-  onClick: () => {
-    toast.add({ title: 'Google', description: 'Login with Google' })
-  }
-}, {
-  label: 'GitHub',
-  icon: 'i-simple-icons-github',
-  onClick: () => {
-    toast.add({ title: 'GitHub', description: 'Login with GitHub' })
-  }
-}]
-
-const schema = z.object({
-  email: z.string().email('Invalid email'),
-  password: z.string().min(8, 'Must be at least 8 characters')
-})
-
-type Schema = z.output<typeof schema>
-
-function onSubmit(payload: FormSubmitEvent<Schema>) {
-  console.log('Submitted', payload)
-}
-</script>
-
-<template>
-  <div class="flex flex-col items-center justify-center gap-4 p-4">
-    <UPageCard class="w-full max-w-md">
-      <UAuthForm
-        :schema="schema"
-        title="Login"
-        description="Enter your credentials to access your account."
-        icon="i-lucide-user"
-        :fields="fields"
-        :providers="providers"
-        @submit="onSubmit"
-      />
-    </UPageCard>
-  </div>
-</template>
-```
-:::
+::component-example
+---
+name: 'auth-form-login-example'
+collapse: true
+---
 ::
 
 ### 标题 (Title)
 
 使用 `title` prop 设置表单的标题。
 
-::code-preview
-
-TODO
-
-#code
-
-```vue
-
-<script setup lang="ts">
-  const fields = ref([
-    {
-      name: 'email',
-      type: 'text',
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - fields
+external:
+  - fields
+externalTypes:
+  - AuthFormField
+props:
+  class: 'max-w-md'
+  title: 'Login'
+  fields:
+    - name: 'email'
+      type: 'text'
       label: 'Email'
-    },
-    {
-      name: 'password',
-      type: 'password',
+    - name: 'password'
+      type: 'password'
       label: 'Password'
-    }
-  ])
-</script>
-
-<template>
-  <UAuthForm class="max-w-md" title="Login" :fields="fields" />
-</template>
-```
+---
 ::
 
 ### 描述 (Description)
 
 使用 `description` prop 设置表单的描述。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const fields = ref([
-  {
-    name: 'email',
-    type: 'text',
-    label: 'Email'
-  },
-  {
-    name: 'password',
-    type: 'password',
-    label: 'Password'
-  }
-])
-</script>
-
-<template>
-  <UAuthForm
-    class="max-w-md"
-    title="Login"
-    description="Enter your credentials to access your account."
-    :fields="fields"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - fields
+  - title
+external:
+  - fields
+externalTypes:
+  - AuthFormField
+props:
+  class: 'max-w-md'
+  title: 'Login'
+  description: "Enter your credentials to access your account."
+  fields:
+    - name: 'email'
+      type: 'text'
+      label: 'Email'
+    - name: 'password'
+      type: 'password'
+      label: 'Password'
+---
 ::
 
 ### 图标 (Icon)
 
 使用 `icon` prop 设置表单的图标。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const fields = ref([
-  {
-    name: 'email',
-    type: 'text',
-    label: 'Email'
-  },
-  {
-    name: 'password',
-    type: 'password',
-    label: 'Password'
-  }
-])
-</script>
-
-<template>
-  <UAuthForm
-    class="max-w-md"
-    title="Login"
-    description="Enter your credentials to access your account."
-    icon="i-lucide-user"
-    :fields="fields"
-  />
-</template>
-```
-
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - fields
+  - title
+  - description
+external:
+  - fields
+externalTypes:
+  - AuthFormField
+props:
+  class: 'max-w-md'
+  title: 'Login'
+  description: 'Enter your credentials to access your account.'
+  icon: 'i-lucide-user'
+  fields:
+    - name: 'email'
+      type: 'text'
+      label: 'Email'
+    - name: 'password'
+      type: 'password'
+      label: 'Password'
+---
 ::
 
 ### 授权提供商 (Providers)
@@ -206,161 +121,136 @@ const fields = ref([
 
 你可以传递 `Button` 组件的任何属性，例如 `variant`、`color`、`to` 等。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const fields = ref([
-  {
-    name: 'email',
-    type: 'text',
-    label: 'Email'
-  },
-  {
-    name: 'password',
-    type: 'password',
-    label: 'Password'
-  }
-])
-const providers = ref([
-  {
-    label: 'Google',
-    icon: 'i-simple-icons-google',
-    color: 'neutral',
-    variant: 'subtle'
-  },
-  {
-    label: 'GitHub',
-    icon: 'i-simple-icons-github',
-    color: 'neutral',
-    variant: 'subtle'
-  }
-])
-</script>
-
-<template>
-  <UAuthForm
-    class="max-w-md"
-    title="Login"
-    description="Enter your credentials to access your account."
-    icon="i-lucide-user"
-    :providers="providers"
-    :fields="fields"
-  />
-</template>
-```
-
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - fields
+  - title
+  - description
+  - icon
+  - providers
+external:
+  - fields
+  - providers
+externalTypes:
+  - AuthFormField
+  - ButtonProps
+props:
+  class: 'max-w-md'
+  title: 'Login'
+  description: 'Enter your credentials to access your account.'
+  icon: 'i-lucide-user'
+  fields:
+    - name: 'email'
+      type: 'text'
+      label: 'Email'
+    - name: 'password'
+      type: 'password'
+      label: 'Password'
+  providers:
+    - label: 'Google'
+      icon: 'i-simple-icons-google'
+      color: 'neutral'
+      variant: 'subtle'
+    - label: 'GitHub'
+      icon: 'i-simple-icons-github'
+      color: 'neutral'
+      variant: 'subtle'
+---
 ::
 
 ### 分隔符 (Separator)
 
 使用 `separator` prop 自定义授权提供商和字段之间的 [Separator](/ui/components/separator)。默认为 `or`。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const providers = ref([
-  {
-    label: 'Google',
-    icon: 'i-simple-icons-google',
-    color: 'neutral',
-    variant: 'subtle'
-  },
-  {
-    label: 'GitHub',
-    icon: 'i-simple-icons-github',
-    color: 'neutral',
-    variant: 'subtle'
-  }
-])
-const fields = ref([
-  {
-    name: 'email',
-    type: 'text',
-    label: 'Email'
-  },
-  {
-    name: 'password',
-    type: 'password',
-    label: 'Password'
-  }
-])
-</script>
-
-<template>
-  <UAuthForm
-    class="max-w-md"
-    title="Login"
-    description="Enter your credentials to access your account."
-    icon="i-lucide-user"
-    :providers="providers"
-    :fields="fields"
-    separator="Providers"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - fields
+  - title
+  - description
+  - icon
+  - providers
+external:
+  - fields
+  - providers
+externalTypes:
+  - AuthFormField
+  - ButtonProps
+props:
+  class: 'max-w-md'
+  title: 'Login'
+  description: 'Enter your credentials to access your account.'
+  icon: 'i-lucide-user'
+  separator: 'Providers'
+  fields:
+    - name: 'email'
+      type: 'text'
+      label: 'Email'
+    - name: 'password'
+      type: 'password'
+      label: 'Password'
+  providers:
+    - label: 'Google'
+      icon: 'i-simple-icons-google'
+      color: 'neutral'
+      variant: 'subtle'
+    - label: 'GitHub'
+      icon: 'i-simple-icons-github'
+      color: 'neutral'
+      variant: 'subtle'
+---
 ::
-
 
 你可以传递 [Separator](/ui/components/separator#props) 组件的任何属性来自定义它。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const providers = ref([
-  {
-    label: 'Google',
-    icon: 'i-simple-icons-google',
-    color: 'neutral',
-    variant: 'subtle'
-  },
-  {
-    label: 'GitHub',
-    icon: 'i-simple-icons-github',
-    color: 'neutral',
-    variant: 'subtle'
-  }
-])
-const fields = ref([
-  {
-    name: 'email',
-    type: 'text',
-    label: 'Email'
-  },
-  {
-    name: 'password',
-    type: 'password',
-    label: 'Password'
-  }
-])
-</script>
-
-<template>
-  <UAuthForm
-    class="max-w-md"
-    title="Login"
-    description="Enter your credentials to access your account."
-    icon="i-lucide-user"
-    :providers="providers"
-    :fields="fields"
-    :separator="{
-      icon: 'i-lucide-user'
-    }"
-  />
-</template>
-```
-
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - fields
+  - title
+  - description
+  - icon
+  - providers
+external:
+  - fields
+  - providers
+externalTypes:
+  - AuthFormField
+  - ButtonProps
+props:
+  class: 'max-w-md'
+  title: 'Login'
+  description: 'Enter your credentials to access your account.'
+  icon: 'i-lucide-user'
+  separator: 
+    icon: 'i-lucide-user'
+  fields:
+    - name: 'email'
+      type: 'text'
+      label: 'Email'
+    - name: 'password'
+      type: 'password'
+      label: 'Password'
+  providers:
+    - label: 'Google'
+      icon: 'i-simple-icons-google'
+      color: 'neutral'
+      variant: 'subtle'
+    - label: 'GitHub'
+      icon: 'i-simple-icons-github'
+      color: 'neutral'
+      variant: 'subtle'
+---
 ::
 
 ### 提交 (Submit)
@@ -369,44 +259,40 @@ const fields = ref([
 
 你可以传递 [Button](/ui/components/button) 组件的任何属性，例如 `variant`、`color`、`to` 等。
 
-::code-preview
-
-TODO
-
-#code
-
-```vue
-<script setup lang="ts">
-const fields = ref([
-  {
-    name: 'email',
-    type: 'text',
-    label: 'Email'
-  },
-  {
-    name: 'password',
-    type: 'password',
-    label: 'Password'
-  }
-])
-</script>
-
-<template>
-  <UAuthForm
-    class="max-w-md"
-    title="Login"
-    description="Enter your credentials to access your account."
-    icon="i-lucide-user"
-    :fields="fields"
-    :submit="{
-      label: 'Submit',
-      color: 'error',
-      variant: 'subtle'
-    }"
-  />
-</template>
-```
-
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - fields
+  - title
+  - description
+  - icon
+  - submit.label
+  - submit.color
+  - submit.variant
+external:
+  - fields
+externalTypes:
+  - AuthFormField
+props:
+  class: 'max-w-md'
+  title: 'Login'
+  description: 'Enter your credentials to access your account.'
+  icon: 'i-lucide-user'
+  submit:
+    label: 'Submit'
+    color: 'error'
+    variant: 'subtle'
+  fields:
+    - name: 'email'
+      type: 'text'
+      label: 'Email'
+    - name: 'password'
+      type: 'password'
+      label: 'Password'
+---
 ::
 
 ## 示例 (Examples)
@@ -415,130 +301,45 @@ const fields = ref([
 
 你可以将 `AuthForm` 组件包裹在 [PageCard](/ui/components/page-card) 组件中，例如在 `login.vue` 页面中显示。
 
-::code-preview
-
-TODO
-
-#code
-:::code-collapse
-```vue
-<script setup lang="ts">
-import * as z from 'zod'
-import type { FormSubmitEvent } from '@nuxt/ui'
-
-const toast = useToast()
-
-const fields = [{
-  name: 'email',
-  type: 'text' as const,
-  label: 'Email',
-  placeholder: 'Enter your email',
-  required: true
-}, {
-  name: 'password',
-  label: 'Password',
-  type: 'password' as const,
-  placeholder: 'Enter your password'
-}, {
-  name: 'remember',
-  label: 'Remember me',
-  type: 'checkbox' as const
-}]
-
-const providers = [{
-  label: 'Google',
-  icon: 'i-simple-icons-google',
-  onClick: () => {
-    toast.add({ title: 'Google', description: 'Login with Google' })
-  }
-}, {
-  label: 'GitHub',
-  icon: 'i-simple-icons-github',
-  onClick: () => {
-    toast.add({ title: 'GitHub', description: 'Login with GitHub' })
-  }
-}]
-
-const schema = z.object({
-  email: z.string().email('Invalid email'),
-  password: z.string().min(8, 'Must be at least 8 characters')
-})
-
-type Schema = z.output<typeof schema>
-
-function onSubmit(payload: FormSubmitEvent<Schema>) {
-  console.log('Submitted', payload)
-}
-</script>
-
-<template>
-  <div class="flex flex-col items-center justify-center gap-4 p-4">
-    <UPageCard class="w-full max-w-md">
-      <UAuthForm
-        :schema="schema"
-        :fields="fields"
-        :providers="providers"
-        title="Welcome back!"
-        icon="i-lucide-lock"
-        @submit="onSubmit"
-      >
-        <template #description>
-          Don't have an account? <ULink to="#" class="text-primary font-medium">Sign up</ULink>.
-        </template>
-        <template #password-hint>
-          <ULink to="#" class="text-primary font-medium" tabindex="-1">Forgot password?</ULink>
-        </template>
-        <template #validation>
-          <UAlert color="error" icon="i-lucide-info" title="Error signing in" />
-        </template>
-        <template #footer>
-          By signing in, you agree to our <ULink to="#" class="text-primary font-medium">Terms of Service</ULink>.
-        </template>
-      </UAuthForm>
-    </UPageCard>
-  </div>
-</template>
-```
-:::
+::component-example
+---
+name: 'auth-form-login-example-within-page'
+collapse: true
+---
 ::
 
 ### OTP / 2FA 示例 (OTP / 2FA Example)
 
 你可以通过在 `fields` 数组中使用 `otp` 类型来添加一次性密码 (OTP) 字段，用于两因素认证。`otp` 属性允许你传递 [PinInput](/ui/components/pin-input#api) 组件支持的任何 prop。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const fields = ref([
-  {
-    name: 'email',
-    type: 'text',
-    label: 'Email'
-  },
-  {
-    name: 'password',
-    type: 'password',
-    label: 'Password'
-  },
-  {
-    name: 'otp',
-    type: 'otp',
-    otp: {
-      length: 6,
-      placeholder: '●'
-    }
-  }
-])
-</script>
-
-<template>
-  <UAuthForm class="max-w-md" title="Login with 2FA" :fields="fields" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - fields
+  - title
+external:
+  - fields
+externalTypes:
+  - AuthFormField
+props:
+  class: 'max-w-md'
+  title: 'Login with 2FA'
+  fields:
+    - name: 'email'
+      type: 'text'
+      label: 'Email'
+    - name: 'password'
+      type: 'password'
+      label: 'Password'
+    - name: 'otp'
+      type: 'otp'
+      otp:
+        length: 6
+        placeholder: '●'
+---
 ::
 
 ## API

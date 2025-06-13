@@ -40,7 +40,7 @@ links:
 
 使用 `shortcut` prop 更改在 `defineShortcuts` 中用于打开 `ContentSearch` 组件的快捷键。默认为 `meta_k` (`Ctrl` `K`)。
 
-```vue [app.vue]
+```vue{4} [app.vue]
 <template>
   <UDashboardSearch
     v-model:search-term="searchTerm"
@@ -65,7 +65,7 @@ definePageMeta({
 
 你可以通过将 `color-mode` prop 设置为 `false` 来禁用此行为：
 
-```vue [app.vue]
+```vue{4} [app.vue]
 <template>
   <UDashboardSearch
     v-model:search-term="searchTerm"

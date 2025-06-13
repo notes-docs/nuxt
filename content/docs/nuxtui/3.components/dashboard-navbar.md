@@ -15,8 +15,7 @@ links:
 
 在 `DashboardPanel` 组件的 `header` 插槽中使用它：
 
-
-```vue [pages/index.vue]
+```vue{9-11} [pages/index.vue]
 <script setup lang="ts">
 definePageMeta({
   layout: 'dashboard'
@@ -34,43 +33,10 @@ definePageMeta({
 
 使用 `left`、`default` 和 `right` 插槽来自定义导航栏。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-import type { TabsItem } from '@nuxt/ui'
-
-const items: TabsItem[] = [
-  {
-    label: '全部',
-    value: 'all'
-  },
-  {
-    label: '未读',
-    value: 'unread'
-  }
-]
-</script>
-
-<template>
-  <UDashboardNavbar title="收件箱">
-    <template #leading>
-      <UDashboardSidebarCollapse />
-    </template>
-
-    <template #trailing>
-      <UBadge label="4" variant="subtle" />
-    </template>
-
-    <template #right>
-      <UTabs :items="items" default-value="all" size="sm" class="w-40" :content="false" />
-    </template>
-  </UDashboardNavbar>
-</template>
-```
+::component-example
+---
+name: 'dashboard-navbar-example'
+---
 ::
 
 ::note
@@ -81,32 +47,42 @@ const items: TabsItem[] = [
 
 使用 `title` prop 设置导航栏的标题。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UDashboardNavbar title="Dashboard" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'px-4'
+  title: 'Dashboard'
+---
 ::
 
 ### 图标 (Icon)
 
 使用 `icon` prop 设置导航栏的图标。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UDashboardNavbar title="Dashboard" icon="i-lucide-house" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'px-4'
+  title: 'Dashboard'
+  icon:  'i-lucide-house'
+---
 ::
 
 ### 切换按钮 (Toggle)
@@ -115,42 +91,51 @@ TODO
 
 你可以传递 `Button` 组件的任何属性来自定义它。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UDashboardNavbar
-    title="Dashboard"
-    :toggle="{
-      color: 'primary',
-      variant: 'subtle',
-      class: 'rounded-full'
-    }"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - toggle.color
+  - toggle.variant
+  - toggle.class
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'px-4'
+  title: 'Dashboard'
+  toggle:
+    color: 'primary'
+    variant: 'subtle'
+    class: 'rounded-full'
+---
 ::
 
 ### 切换侧边 (Toggle Side)
 
 使用 `toggle-side` prop 更改切换按钮的侧边位置。默认为 `right`。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UDashboardNavbar
-    title="Dashboard"
-    toggle-side="right"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - toggle-side
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'px-4'
+  title: 'Dashboard'
+  toggle-side: 'right'
+---
 ::
 
 ## API

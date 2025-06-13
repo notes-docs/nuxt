@@ -10,13 +10,19 @@ links:
   - label: GitHub
     icon: i-simple-icons-github
     to: https://github.com/nuxt/ui-pro/tree/v3/src/runtime/components/ChatPrompt.vue
+navigation.badge: NEW
 ---
 
 ## 用法 (Usage)
 
 `ChatPrompt` 组件渲染一个 `<form>` 元素，并扩展了 `Textarea` 组件，因此你可以传递任何属性，例如 `icon`、`placeholder`、`autofocus` 等。
 
-TODO
+::component-example
+---
+name: 'chat-prompt-example'
+source: false
+---
+::
 
 ::note
 `ChatPrompt` 处理以下事件：
@@ -29,16 +35,20 @@ TODO
 
 使用 `variant` prop 更改提示的样式。默认为 `outline`。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UChatPrompt variant="soft" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'max-w-md'
+  variant: 'soft'
+---
 ::
 
 ## 示例 (Examples)

@@ -14,6 +14,7 @@
     "test": "pnpm lint && pnpm typecheck"
   },
   "dependencies": {
+    "@ai-sdk/vue": "^1.2.12",
     "@iconify-json/lucide": "^1.2.45",
     "@iconify-json/simple-icons": "^1.2.36",
     "@internationalized/date": "^3.8.2",
@@ -29,10 +30,12 @@
     "@nuxtjs/color-mode": "^3.5.2",
     "@nuxtjs/mdc": "^0.17.0",
     "@nuxtjs/sitemap": "^7.3.0",
+    "@nuxtjs/tailwindcss": "7.0.0-beta.0",
     "@shikijs/transformers": "^3.4.2",
     "@unhead/vue": "^2.0.8",
     "@vueuse/components": "^13.3.0",
     "@vueuse/core": "^13.3.0",
+    "ai": "^4.3.16",
     "autoprefixer": "^10.4.21",
     "cross-env": "^7.0.3",
     "debug": "4.3.4",
@@ -59,6 +62,7 @@
     "vue": "^3.5.14",
     "vue-component-meta": "^2.2.10",
     "vue-router": "^4.5.1",
+    "workers-ai-provider": "^0.6.1",
     "yup": "^1.6.1",
     "zod": "^3.25.53"
   },
@@ -75,5 +79,6 @@
     "overrides": {
       "@nuxt/ui": "link:../web-sources/packages/ui"
     }
-  }
+  },
+  "packageManager": "pnpm@10.8.0+sha512.0e82714d1b5b43c74610193cb20734897c1d00de89d0e18420aebc5977fa13d780a9cb05734624e81ebd81cc876cd464794850641c48b9544326b5622ca29971"
 }

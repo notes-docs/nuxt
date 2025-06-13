@@ -29,80 +29,64 @@ BlogPosts 组件提供了一个灵活的布局，通过 **默认插槽** 或 `po
 
 使用 `posts` prop，它是一个包含 [BlogPost](/ui/components/blog-post#props) 组件属性的对象数组。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const posts = ref([
-  {
-    title: 'Nuxt Icon v1',
-    description: 'Discover Nuxt Icon v1!',
-    image: 'https://nuxt.com/assets/blog/nuxt-icon/cover.png',
-    date: '2024-11-25'
-  },
-  {
-    title: 'Nuxt 3.14',
-    description: 'Nuxt 3.14 is out!',
-    image: 'https://nuxt.com/assets/blog/v3.14.png',
-    date: '2024-11-04'
-  },
-  {
-    title: 'Nuxt 3.13',
-    description: 'Nuxt 3.13 is out!',
-    image: 'https://nuxt.com/assets/blog/v3.13.png',
-    date: '2024-08-22'
-  }
-])
-</script>
-
-<template>
-  <UBlogPosts :posts="posts" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+ - posts
+hide:
+external:
+ - posts
+externalTypes:
+props:
+  posts:
+    - title: 'Nuxt Icon v1'
+      description: 'Discover Nuxt Icon v1!'
+      image: 'https://nuxt.com/assets/blog/nuxt-icon/cover.png'
+      date: '2024-11-25'
+    - title: 'Nuxt 3.14'
+      description: 'Nuxt 3.14 is out!'
+      image: 'https://nuxt.com/assets/blog/v3.14.png'
+      date: '2024-11-04'
+    - title: 'Nuxt 3.13'
+      description: 'Nuxt 3.13 is out!'
+      image: 'https://nuxt.com/assets/blog/v3.13.png'
+      date: '2024-08-22'
+---
 ::
 
 ### 方向 (Orientation)
 
 使用 `orientation` prop 更改 `BlogPosts` 的方向。默认为 `horizontal`（水平）。
 
-::code-preview
-
-TODO
-
-#code
-:::code-collapse
-```vue
-<script setup lang="ts">
-const posts = ref([
-  {
-    title: 'Nuxt Icon v1',
-    description: 'Discover Nuxt Icon v1!',
-    image: 'https://nuxt.com/assets/blog/nuxt-icon/cover.png',
-    date: '2024-11-25'
-  },
-  {
-    title: 'Nuxt 3.14',
-    description: 'Nuxt 3.14 is out!',
-    image: 'https://nuxt.com/assets/blog/v3.14.png',
-    date: '2024-11-04'
-  },
-  {
-    title: 'Nuxt 3.13',
-    description: 'Nuxt 3.13 is out!',
-    image: 'https://nuxt.com/assets/blog/v3.13.png',
-    date: '2024-08-22'
-  }
-])
-</script>
-
-<template>
-  <UBlogPosts orientation="vertical" :posts="posts" />
-</template>
-```
-:::
+::component-code
+---
+pro: true
+prettier: true
+collapse: true
+ignore:
+  - posts
+hide:
+external:
+  - posts
+externalTypes:
+props:
+  orientation: 'vertical'
+  posts:
+    - title: 'Nuxt Icon v1'
+      description: 'Discover Nuxt Icon v1!'
+      image: 'https://nuxt.com/assets/blog/nuxt-icon/cover.png'
+      date: '2024-11-25'
+    - title: 'Nuxt 3.14'
+      description: 'Nuxt 3.14 is out!'
+      image: 'https://nuxt.com/assets/blog/v3.14.png'
+      date: '2024-11-04'
+    - title: 'Nuxt 3.13'
+      description: 'Nuxt 3.13 is out!'
+      image: 'https://nuxt.com/assets/blog/v3.13.png'
+      date: '2024-08-22'
+---
 ::
 
 ::tip
@@ -111,7 +95,7 @@ const posts = ref([
 
 ## 示例 (Examples)
 
-::info
+::note
 虽然这些示例使用了 Nuxt Content，但这些组件可以与任何内容管理系统集成。
 ::
 

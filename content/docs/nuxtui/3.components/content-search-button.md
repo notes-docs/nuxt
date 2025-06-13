@@ -20,30 +20,40 @@ links:
 
 `ContentSearchButton` 组件用于打开 **`ContentSearch`** 模态框。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UContentSearchButton />
-</template>
-```
+::component-code
+---
+pro: true
+prefix: 'content'
+prettier: true
+ignore:
+  - class
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'px-4'
+---
 ::
 
 它扩展了 `Button` 组件，因此你可以传递任何属性，例如 `color`、`variant`、`size` 等。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UContentSearchButton variant="subtle" />
-</template>
-```
+::component-code
+---
+pro: true
+prefix: 'content'
+prettier: true
+ignore:
+  - class
+  - subtle
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'px-4'
+  variant: 'subtle'
+---
 ::
 
 ::note{to="/doc/components/content-search-button#collapsed"}
@@ -54,33 +64,45 @@ TODO
 
 使用 `collapsed` prop 显示按钮的标签和键盘快捷键。默认为 `true`。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UContentSearchButton :collapsed="false" />
-</template>
-```
+::component-code
+---
+pro: true
+prefix: 'content'
+prettier: true
+ignore:
+  - class
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'px-4'
+  collapsed: false
+---
 ::
-
 
 ### 键盘快捷键 (Kbds)
 
 使用 `kbds` prop 在按钮中显示键盘按键。默认为 `['meta', 'K']`，以匹配 `ContentSearch` 组件的默认快捷键。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UContentSearchButton :collapsed="false" :kbds="['alt', 'O']" />
-</template>
-```
+::component-code
+---
+pro: true
+prefix: 'content'
+prettier: true
+ignore:
+  - class
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'px-4'
+  collapsed: false
+  kbds:
+    - alt
+    - o
+---
 ::
 
 ## API

@@ -14,55 +14,67 @@ links:
 
 使用 `name` prop 显示用户的姓名。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UUser name="John Doe" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'px-4'
+  name: 'John Doe'
+---
 ::
 
 ### 描述
 
 使用 `description` prop 显示用户的描述。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UUser name="John Doe" description="软件工程师" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'px-4'
+  name: 'John Doe'
+  description: 'Software Engineer'
+---
 ::
 
 ### 头像
 
 使用 `avatar` prop 显示一个 **Avatar** 组件。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UUser
-    name="John Doe"
-    description="软件工程师"
-    :avatar="{
-      src: 'https://i.pravatar.cc/150?u=john-doe',
-      icon: 'i-lucide-image'
-    }"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - name
+  - description
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'px-4'
+  name: 'John Doe'
+  description: 'Software Engineer'
+  avatar: 
+    src: 'https://i.pravatar.cc/150?u=john-doe'
+    icon: 'i-lucide-image'
+---
 ::
 
 [显示所有头像属性] TODO
@@ -71,26 +83,31 @@ TODO
 
 使用 `chip` prop 显示一个 **Chip** 组件。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UUser
-    name="John Doe"
-    description="软件工程师"
-    :avatar="{
-      src: 'https://i.pravatar.cc/150?u=john-doe'
-    }"
-    :chip="{
-      color: 'primary',
-      position: 'top-right'
-    }"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - name
+  - description
+  - avatar.src
+  - avatar.icon
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'px-4'
+  name: 'John Doe'
+  description: 'Software Engineer'
+  avatar:
+    src: 'https://i.pravatar.cc/150?u=john-doe'
+    icon: 'i-lucide-image'
+  chip:
+    color: 'primary'
+    position: 'top-right'
+---
 ::
 
 [显示所有徽章属性] TODO
@@ -99,71 +116,83 @@ TODO
 
 使用 `size` prop 更改用户头像和文本的大小。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UUser
-    name="John Doe"
-    description="软件工程师"
-    :avatar="{
-      src: 'https://i.pravatar.cc/150?u=john-doe'
-    }"
-    chip
-    size="xl"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - name
+  - description
+  - avatar.src
+  - chip
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'px-4'
+  name: 'John Doe'
+  description: 'Software Engineer'
+  avatar:
+    src: 'https://i.pravatar.cc/150?u=john-doe'
+  chip: true
+  size: 'xl'
+---
 ::
 
 ### 方向
 
 使用 `orientation` prop 更改方向。默认为 `horizontal`。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UUser
-    orientation="vertical"
-    name="John Doe"
-    description="软件工程师"
-    :avatar="{
-      src: 'https://i.pravatar.cc/150?u=john-doe'
-    }"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - avatar.src
+  - chip
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'px-4'
+  name: 'John Doe'
+  description: 'Software Engineer'
+  avatar:
+    src: 'https://i.pravatar.cc/150?u=john-doe'
+  orientation: 'vertical'
+---
 ::
 
 ### 链接
 
 您可以传递 **<NuxtLink>** 组件的任何属性，例如 `to`、`target`、`rel` 等。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UUser
-    to="https://github.com/nuxt/ui-pro"
-    target="_blank"
-    name="Nuxt UI Pro"
-    description="Vue 高级组件"
-    :avatar="{
-      src: 'https://github.com/nuxt-ui-pro.png'
-    }"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - name
+  - description
+  - avatar.src
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'px-4'
+  name: 'John Doe'
+  description: 'Software Engineer'
+  avatar:
+    src: 'https://i.pravatar.cc/150?u=john-doe'
+  to: "https://github.com/nuxt/ui-pro"
+  target: '_blank'
+---
 ::
 
 ::note

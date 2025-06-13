@@ -50,7 +50,7 @@ function _useHeaderLinks() {
         label: 'Nuxt UI',
         description: 'Nuxt UI 文档',
         icon: 'i-lucide-app-window-mac',
-        to: '/ui/getting-started',
+        to: '/ui/components',
         active: route.path.startsWith('/ui/getting-started')
       }]
     }, {

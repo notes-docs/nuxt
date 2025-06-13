@@ -4,7 +4,7 @@ description: 一个在浅色和深色模式下具有不同源的头像。
 category: element
 module: ui-pro
 links:
-  - label: Avatar  阿凡达
+  - label: Avatar
     icon: i-simple-icons-nuxt
     to: https://ui.nuxt.com/components/avatar
   - label: GitHub
@@ -18,16 +18,22 @@ links:
 
 使用 `light` 和 `dark` prop 来定义浅色和深色模式下的源。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UColorModeAvatar light="https://github.com/vuejs.png" dark="https://github.com/nuxt.png" />
-</template>
-```
+::component-code
+---
+pro: true
+prefix: 'color-mode'
+prettier: true
+ignore:
+  - class
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'max-w-md'
+  light: 'https://github.com/vuejs.png'
+  dark: 'https://github.com/nuxt.png'
+---
 ::
 
 ::note

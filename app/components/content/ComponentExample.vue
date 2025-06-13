@@ -176,7 +176,7 @@ const optionsValues = ref(props.options?.reduce((acc, option) => {
 const urlSearchParams = computed(() => {
   const params = {
     ...optionsValues.value, // 用户交互修改的配置项
-    ...componentProps  // 外部传入的组件 props
+    ...componentProps // 外部传入的组件 props
   }
 
   // 如果未启用 iframeMobile，则添加当前容器宽度参数

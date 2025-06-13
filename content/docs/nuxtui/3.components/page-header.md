@@ -29,87 +29,98 @@ links:
 
 使用 `title` 属性在头部显示标题。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UPageHeader title="PageHeader" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'w-ful'
+  title: 'PageHeader'
+---
 ::
 
 ### **描述**
 
 使用 `description` 属性在头部显示描述。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UPageHeader
-    title="PageHeader"
-    description="A responsive page header with title, description and actions."
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'w-ful'
+  title: 'PageHeader'
+  description: "A responsive page header with title, description and actions."
+---
 ::
 
 ### **主标题**
 
 使用 `headline` 属性在头部显示主标题。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UPageHeader
-    title="PageHeader"
-    description="A responsive page header with title, description and actions."
-    headline="Components"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'w-ful'
+  title: 'PageHeader'
+  description: "A responsive page header with title, description and actions."
+  headline: "Components"
+---
 ::
 
 ### **链接**
 
 使用 `links` 属性在头部显示 **Button** 列表。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const links = ref([
-  {
-    label: 'GitHub',
-    icon: 'i-simple-icons-github',
-    to: 'https://github.com/nuxt/ui-pro/tree/v3/src/runtime/components/PageHeader.vue',
-    target: '_blank'
-  }
-])
-</script>
-
-<template>
-  <UPageHeader
-    title="PageHeader"
-    description="A responsive page header with title, description and actions."
-    headline="Components"
-    :links="links"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+  - headline
+  - links
+hide:
+  - class
+external:
+  - links
+externalTypes:
+props:
+  class: 'w-ful'
+  title: 'PageHeader'
+  description: "A responsive page header with title, description and actions."
+  headline: "Components"
+  links:
+    - label: 'GitHub'
+      icon: 'i-simple-icons-github'
+      to: 'https://github.com/nuxt/ui-pro/tree/v3/src/runtime/components/PageHeader.vue'
+      target: '_blank'
+---
 ::
 
 ## 示例
@@ -122,7 +133,7 @@ const links = ref([
 
 在页面中使用 **PageHeader** 组件显示页面头部：
 
-```vue [pages/[...slug].vue]
+```vue{19-24} [pages/[...slug].vue]
 <script setup lang="ts">
 const route = useRoute()
 

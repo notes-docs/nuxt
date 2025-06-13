@@ -271,7 +271,7 @@ ${props.slots?.default}
   // 开始 Vue 模板代码块，支持行号高亮
   code += `\`\`\`vue${props.highlights?.length ? ` {${props.highlights.join('-')}}` : ''}`
 
-  // 如果需要外化 props 到 script setup 中
+  // 如果需要额外 props 到 script setup 中
   if (props.external?.length) {
     code += `
 <script setup lang="ts">

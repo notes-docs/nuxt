@@ -29,76 +29,90 @@ TODO
 
 使用 `title` prop 设置区块的标题。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UPageSection title="精美的 Vue UI 组件" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'w-ful'
+  title: 'Beautiful Vue UI components'
+---
 ::
 
 ### 描述
 
 使用 `description` prop 设置区块的描述。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UPageSection
-    title="精美的 Vue UI 组件"
-    description="Nuxt UI 提供了一套全面的组件和工具，帮助您使用 Vue 和 Nuxt 构建精美且易于访问的 Web 应用程序。"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'w-ful'
+  title: 'Beautiful Vue UI components'
+  description: 'Nuxt UI provides a comprehensive suite of components and utilities to help you build beautiful and accessible web applications with Vue and Nuxt.'
+---
 ::
-
 
 ### 标题
 
 使用 `headline` prop 设置区块的标题。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UPageSection
-    title="精美的 Vue UI 组件"
-    description="Nuxt UI 提供了一套全面的组件和工具，帮助您构建精美且易于访问的 Web 应用程序。"
-    headline="特性"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'w-ful'
+  title: 'Beautiful Vue UI components'
+  description: 'Nuxt UI provides a comprehensive suite of components and utilities to help you build beautiful and accessible web applications with Vue and Nuxt.'
+  headline: 'Features'
+---
 ::
 
 ### 图标
 
 使用 `icon` prop 设置区块的图标。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UPageSection
-    title="精美的 Vue UI 组件"
-    description="Nuxt UI 提供了一套全面的组件和工具，帮助您构建精美且易于访问的 Web 应用程序。"
-    icon="i-lucide-rocket"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'w-ful'
+  title: 'Beautiful Vue UI components'
+  description: 'Nuxt UI provides a comprehensive suite of components and utilities to help you build beautiful and accessible web applications with Vue and Nuxt.'
+  icon: 'i-lucide-rocket'
+---
 ::
 
 ### 特性
@@ -112,208 +126,215 @@ TODO
 
 您可以传递 **Link** 组件的任何属性，例如 `to`、`target` 等。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const features = ref([
-  {
-    title: '图标',
-    description: 'Nuxt UI 集成 Nuxt Icon，可访问来自 Iconify 的 200,000 多个图标。',
-    icon: 'i-lucide-smile',
-    to: '/getting-started/icons'
-  },
-  {
-    title: '字体',
-    description: 'Nuxt UI 集成 Nuxt Fonts，提供即插即用的字体优化。',
-    icon: 'i-lucide-a-large-small',
-    to: '/getting-started/fonts'
-  },
-  {
-    title: '颜色模式',
-    description: 'Nuxt UI 集成 Nuxt Color Mode，可在亮色和暗色模式之间切换。',
-    icon: 'i-lucide-sun-moon',
-    to: '/getting-started/color-mode'
-  }
-])
-</script>
-
-<template>
-  <UPageSection
-    title="精美的 Vue UI 组件"
-    description="Nuxt UI 提供了一套全面的组件和工具，帮助您构建精美且易于访问的 Web 应用程序。"
-    :features="features"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+  - features
+hide:
+  - class
+external:
+  - features
+externalTypes:
+props:
+  class: 'w-ful'
+  title: 'Beautiful Vue UI components'
+  description: 'Nuxt UI provides a comprehensive suite of components and utilities to help you build beautiful and accessible web applications with Vue and Nuxt.'
+  features:
+    - title: 'Icons'
+      description: 'Nuxt UI integrates with Nuxt Icon to access over 200,000+ icons from Iconify.'
+      icon: 'i-lucide-smile'
+      to: '/getting-started/icons'
+    - title: 'Fonts'
+      description: 'Nuxt UI integrates with Nuxt Fonts to provide plug-and-play font optimization.'
+      icon: 'i-lucide-a-large-small'
+      to: '/getting-started/fonts'
+    - title: 'Color Mode'
+      description: 'Nuxt UI integrates with Nuxt Color Mode to switch between light and dark.'
+      icon: 'i-lucide-sun-moon'
+      to: '/getting-started/color-mode'
+---
 ::
 
 ### 链接
 
 使用 `links` prop 在描述下方显示 **Button** 列表。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const links = ref([
-  {
-    label: '开始使用',
-    to: '/getting-started',
-    icon: 'i-lucide-square-play',
-    color: 'neutral'
-  },
-  {
-    label: '探索组件',
-    to: '/components/app',
-    color: 'neutral',
-    variant: 'subtle',
-    trailingIcon: 'i-lucide-arrow-right'
-  }
-])
-</script>
-
-<template>
-  <UPageSection
-    title="精美的 Vue UI 组件"
-    description="Nuxt UI 提供了一套全面的组件和工具，帮助您构建精美且易于访问的 Web 应用程序。"
-    :links="links"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - links
+hide:
+  - class
+external:
+  - links
+externalTypes:
+props:
+  class: 'w-ful'
+  title: 'Beautiful Vue UI components'
+  description: 'Nuxt UI provides a comprehensive suite of components and utilities to help you build beautiful and accessible web applications with Vue and Nuxt.'
+  links:
+    - label: 'Get started'
+      to: '/getting-started'
+      icon: 'i-lucide-square-play'
+      color: 'neutral'
+    - label: 'Explore components'
+      to: '/components/app'
+      color: 'neutral'
+      variant: 'subtle'
+      trailingIcon: 'i-lucide-arrow-right'
+---
 ::
 
 ### 方向
 
 使用 `orientation` prop 更改默认插槽的方向。默认为 `vertical`。
 
-::code-preview
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+  - icon
+  - features
+  - links
+hide:
+  - class
+external:
+  - features
+  - links
+externalTypes:
+slots:
+  default: |
 
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const features = ref([
-  {
-    title: '图标',
-    description: 'Nuxt UI 集成 Nuxt Icon，可访问来自 Iconify 的 200,000 多个图标。',
-    icon: 'i-lucide-smile',
-    to: '/getting-started/icons'
-  },
-  {
-    title: '字体',
-    description: 'Nuxt UI 集成 Nuxt Fonts，提供即插即用的字体优化。',
-    icon: 'i-lucide-a-large-small',
-    to: '/getting-started/fonts'
-  },
-  {
-    title: '颜色模式',
-    description: 'Nuxt UI 集成 Nuxt Color Mode，可在亮色和暗色模式之间切换。',
-    icon: 'i-lucide-sun-moon',
-    to: '/getting-started/color-mode'
-  }
-])
-const links = ref([
-  {
-    label: '探索组件',
-    to: '/components/app',
-    color: 'neutral',
-    variant: 'subtle',
-    trailingIcon: 'i-lucide-arrow-right'
-  }
-])
-</script>
-
-<template>
-  <UPageSection
-    title="精美的 Vue UI 组件"
-    description="Nuxt UI 提供了一套全面的组件和工具，帮助您构建精美且易于访问的 Web 应用程序。"
-    icon="i-lucide-rocket"
-    orientation="horizontal"
-    :features="features"
-    :links="links"
-  >
     <img
-      src="https://picsum.photos/704/1294"
-      width="352"
-      height="647"
-      alt="插图"
-      class="w-full rounded-lg"
+    src="https://picsum.photos/704/1294"
+    width="352"
+    height="647"
+    alt="Illustration"
+    class="w-full rounded-lg"
     />
-  </UPageSection>
-</template>
-```
+
+props:
+  class: 'w-ful'
+  title: 'Beautiful Vue UI components'
+  description: 'Nuxt UI provides a comprehensive suite of components and utilities to help you build beautiful and accessible web applications with Vue and Nuxt.'
+  icon: 'i-lucide-rocket'
+  orientation: "horizontal"
+  features:
+    - title: 'Icons'
+      description: 'Nuxt UI integrates with Nuxt Icon to access over 200,000+ icons from Iconify.'
+      icon: 'i-lucide-smile'
+      to: '/getting-started/icons'
+    - title: 'Fonts'
+      description: 'Nuxt UI integrates with Nuxt Fonts to provide plug-and-play font optimization.'
+      icon: 'i-lucide-a-large-small'
+      to: '/getting-started/fonts'
+    - title: 'Color Mode'
+      description: 'Nuxt UI integrates with Nuxt Color Mode to switch between light and dark.'
+      icon: 'i-lucide-sun-moon'
+      to: '/getting-started/color-mode'
+  links:
+    - label: 'Get started'
+      to: '/getting-started'
+      icon: 'i-lucide-square-play'
+      color: 'neutral'
+    - label: 'Explore components'
+      to: '/components/app'
+      color: 'neutral'
+      variant: 'subtle'
+      trailingIcon: 'i-lucide-arrow-right'
+---
+<img
+  src="https://picsum.photos/704/1294"
+  width="352"
+  height="647"
+  alt="Illustration"
+  class="w-full rounded-lg"
+/>
 ::
 
 ### 反向
 
 使用 `reverse` prop 反转默认插槽的方向。
 
-::code-preview
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+  - icon
+  - features
+  - links
+hide:
+  - class
+external:
+  - features
+  - links
+externalTypes:
+slots:
+  default: |
 
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const features = ref([
-  {
-    title: '图标',
-    description: 'Nuxt UI 集成 Nuxt Icon，可访问来自 Iconify 的 200,000 多个图标。',
-    icon: 'i-lucide-smile',
-    to: '/getting-started/icons'
-  },
-  {
-    title: '字体',
-    description: 'Nuxt UI 集成 Nuxt Fonts，提供即插即用的字体优化。',
-    icon: 'i-lucide-a-large-small',
-    to: '/getting-started/fonts'
-  },
-  {
-    title: '颜色模式',
-    description: 'Nuxt UI 集成 Nuxt Color Mode，可在亮色和暗色模式之间切换。',
-    icon: 'i-lucide-sun-moon',
-    to: '/getting-started/color-mode'
-  }
-])
-const links = ref([
-  {
-    label: '探索组件',
-    to: '/components/app',
-    color: 'neutral',
-    variant: 'subtle',
-    trailingIcon: 'i-lucide-arrow-right'
-  }
-])
-</script>
-
-<template>
-  <UPageSection
-    title="精美的 Vue UI 组件"
-    description="Nuxt UI 提供了一套全面的组件和工具，帮助您构建精美且易于访问的 Web 应用程序。"
-    icon="i-lucide-rocket"
-    orientation="horizontal"
-    reverse
-    :features="features"
-    :links="links"
-  >
     <img
-      src="https://picsum.photos/704/1294"
-      width="352"
-      height="647"
-      alt="插图"
-      class="w-full rounded-lg"
+    src="https://picsum.photos/704/1294"
+    width="352"
+    height="647"
+    alt="Illustration"
+    class="w-full rounded-lg"
     />
-  </UPageSection>
-</template>
-```
+
+props:
+  class: 'w-ful'
+  title: 'Beautiful Vue UI components'
+  description: 'Nuxt UI provides a comprehensive suite of components and utilities to help you build beautiful and accessible web applications with Vue and Nuxt.'
+  icon: 'i-lucide-rocket'
+  orientation: "horizontal"
+  reverse: true
+  features:
+    - title: 'Icons'
+      description: 'Nuxt UI integrates with Nuxt Icon to access over 200,000+ icons from Iconify.'
+      icon: 'i-lucide-smile'
+      to: '/getting-started/icons'
+    - title: 'Fonts'
+      description: 'Nuxt UI integrates with Nuxt Fonts to provide plug-and-play font optimization.'
+      icon: 'i-lucide-a-large-small'
+      to: '/getting-started/fonts'
+    - title: 'Color Mode'
+      description: 'Nuxt UI integrates with Nuxt Color Mode to switch between light and dark.'
+      icon: 'i-lucide-sun-moon'
+      to: '/getting-started/color-mode'
+  links:
+    - label: 'Get started'
+      to: '/getting-started'
+      icon: 'i-lucide-square-play'
+      color: 'neutral'
+    - label: 'Explore components'
+      to: '/components/app'
+      color: 'neutral'
+      variant: 'subtle'
+      trailingIcon: 'i-lucide-arrow-right'
+---
+<img
+  src="https://picsum.photos/704/1294"
+  width="352"
+  height="647"
+  alt="Illustration"
+  class="w-full rounded-lg"
+/>
 ::
 
 ## API

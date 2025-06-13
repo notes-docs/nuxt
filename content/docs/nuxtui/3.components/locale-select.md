@@ -28,31 +28,14 @@ flags 通过 Unicode 字符显示。这可能会导致不同的显示效果，�
 
 使用 `locales` 属性，传入 `@nuxt/ui/locale` 中的语言环境数组。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-import * as locales from '@nuxt/ui/locale'
-
-const locale = ref('en')
-</script>
-
-<template>
-  <ULocaleSelect v-model="locale" :locales="Object.values(locales)" class="w-48" />
-</template>
-```
+::component-example
+---
+name: 'locale-select-example'
+---
 ::
 
 你也可以只传入你应用中需要的语言环境：
 
-::code-preview
-
-TODO
-
-#code
 ```vue
 <script setup lang="ts">
 import { en, es, fr } from '@nuxt/ui/locale'
@@ -64,7 +47,6 @@ const locale = ref('en')
   <ULocaleSelect v-model="locale" :locales="[en, es, fr]" />
 </template>
 ```
-::
 
 ### 动态语言环境
 

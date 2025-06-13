@@ -36,7 +36,7 @@ links:
 
 在布局中使用 `Page` 组件，并使用 `left` 插槽显示导航：
 
-```vue [layouts/docs.vue]
+```vue{9-13} [layouts/docs.vue]
 <script setup lang="ts">
 import type { ContentNavigationItem } from '@nuxt/content'
 
@@ -64,7 +64,7 @@ const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
 在页面中使用 `Page` 组件，并使用 `right` 插槽显示目录：
 
-```vue [pages/[...slug].vue]
+```vue{29-31} [pages/[...slug].vue]
 <script setup lang="ts">
 const route = useRoute()
 

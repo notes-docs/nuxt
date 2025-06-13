@@ -10,6 +10,7 @@ links:
   - label: GitHub
     icon: i-simple-icons-github
     to: https://github.com/nuxt/ui-pro/tree/v3/src/runtime/components/ChatMessages.vue
+navigation.badge: New
 ---
 
 ## 用法 (Usage)
@@ -42,69 +43,55 @@ links:
 
 使用 `messages` prop 显示聊天消息列表。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const messages = ref([
-  {
-    id: '6045235a-a435-46b8-989d-2df38ca2eb47',
-    role: 'user',
-    content: 'Hello, how are you?'
-  },
-  {
-    id: '7a92b3c1-d5f8-4e76-b8a9-3c1e5fb2e0d8',
-    role: 'assistant',
-    content: 'I am doing well, thank you for asking! How can I assist you today?'
-  },
-  {
-    id: '9c84d6a7-8b23-4f12-a1d5-e7f3b9c05e2a',
-    role: 'user',
-    content: 'What is the current weather in Tokyo?'
-  },
-  {
-    id: 'b2e5f8c3-a1d9-4e67-b3f2-c9d8e7a6b5f4',
-    role: 'assistant',
-    content:
-      "Based on the latest data, Tokyo is currently experiencing sunny weather with temperatures around 24°C (75°F). It's a beautiful day with clear skies."
-  }
-])
-</script>
-
-<template>
-  <UChatMessages :messages="messages" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - messages
+hide:
+external:
+  - messages
+externalTypes:
+props:
+  messages:
+    - id: '6045235a-a435-46b8-989d-2df38ca2eb47'
+      role: 'user'
+      content: 'Hello, how are you?'
+    - id: '7a92b3c1-d5f8-4e76-b8a9-3c1e5fb2e0d8'
+      role: 'assistant'
+      content: 'I am doing well, thank you for asking! How can I assist you today?'
+    - id: '9c84d6a7-8b23-4f12-a1d5-e7f3b9c05e2a'
+      role: 'user'
+      content: 'What is the current weather in Tokyo?'
+    - id: 'b2e5f8c3-a1d9-4e67-b3f2-c9d8e7a6b5f4'
+      role: 'assistant'
+      content: "Based on the latest data, Tokyo is currently experiencing sunny weather with temperatures around 24°C (75°F). It's a beautiful day with clear skies."
+---
 ::
-
 
 ### 状态 (Status)
 
 使用 `status` prop 在助手处理时显示视觉指示器。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const messages = ref([
-  {
-    id: '6045235a-a435-46b8-989d-2df38ca2eb47',
-    role: 'user',
-    content: 'Hello, how are you?'
-  }
-])
-</script>
-
-<template>
-  <UChatMessages status="submitted" :messages="messages" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - messages
+  - status
+hide:
+external:
+- messages
+externalTypes:
+props:
+  status: 'submitted'
+  messages:
+    - id: '6045235a-a435-46b8-989d-2df38ca2eb47'
+      role: 'user'
+      content: 'Hello, how are you?'
+---
 ::
 
 ::note
@@ -118,56 +105,52 @@ const messages = ref([
 
 ### 用户 (User)
 
-使用 `user` prop 更改**用户**消息的 [ChatMessage](/ui/components/chat-message) prop。默认为：
+使用 `user` prop 更改 **用户** 消息的 [ChatMessage](/ui/components/chat-message) prop。默认为：
 
 * `side`: `'right'`
 * `variant`: `'soft'`
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const messages = ref([
-  {
-    id: '6045235a-a435-46b8-989d-2df38ca2eb47',
-    role: 'user',
-    content: 'Hello, how are you?'
-  },
-  {
-    id: '7a92b3c1-d5f8-4e76-b8a9-3c1e5fb2e0d8',
-    role: 'assistant',
-    content: 'I am doing well, thank you for asking! How can I assist you today?'
-  },
-  {
-    id: '9c84d6a7-8b23-4f12-a1d5-e7f3b9c05e2a',
-    role: 'user',
-    content: 'What is the current weather in Tokyo?'
-  },
-  {
-    id: 'b2e5f8c3-a1d9-4e67-b3f2-c9d8e7a6b5f4',
-    role: 'assistant',
-    content:
-      "Based on the latest data, Tokyo is currently experiencing sunny weather with temperatures around 24°C (75°F). It's a beautiful day with clear skies."
-  }
-])
-</script>
-
-<template>
-  <UChatMessages
-    :user="{
-      side: 'left',
-      variant: 'solid',
-      avatar: {
-        src: 'https://github.com/benjamincanac.png'
-      }
-    }"
-    :messages="messages"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - messages
+  - avatar.src
+hide:
+items:
+  user.side:
+  - left
+  - right
+  user.variant:
+  - solid
+  - outline
+  - subtle
+  - soft
+  - naked
+external:
+  - messages 
+externalTypes:
+props:
+  user:
+    side: 'left'
+    variant: 'solid'
+    avatar:
+      src: 'https://github.com/benjamincanac.png'
+  messages:
+    - id: '6045235a-a435-46b8-989d-2df38ca2eb47'
+      role: 'user'
+      content: 'Hello, how are you?'
+    - id: '7a92b3c1-d5f8-4e76-b8a9-3c1e5fb2e0d8'
+      role: 'assistant'
+      content: 'I am doing well, thank you for asking! How can I assist you today?'
+    - id: '9c84d6a7-8b23-4f12-a1d5-e7f3b9c05e2a'
+      role: 'user'
+      content: 'What is the current weather in Tokyo?'
+    - id: 'b2e5f8c3-a1d9-4e67-b3f2-c9d8e7a6b5f4'
+      role: 'assistant'
+      content: "Based on the latest data, Tokyo is currently experiencing sunny weather with temperatures around 24°C (75°F). It's a beautiful day with clear skies."
+---
 ::
 
 ### 助手 (Assistant)
@@ -177,59 +160,52 @@ const messages = ref([
 * `side`: `'left'`
 * `variant`: `'naked'`
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const messages = ref([
-  {
-    id: '6045235a-a435-46b8-989d-2df38ca2eb47',
-    role: 'user',
-    content: 'Hello, how are you?'
-  },
-  {
-    id: '7a92b3c1-d5f8-4e76-b8a9-3c1e5fb2e0d8',
-    role: 'assistant',
-    content: 'I am doing well, thank you for asking! How can I assist you today?'
-  },
-  {
-    id: '9c84d6a7-8b23-4f12-a1d5-e7f3b9c05e2a',
-    role: 'user',
-    content: 'What is the current weather in Tokyo?'
-  },
-  {
-    id: 'b2e5f8c3-a1d9-4e67-b3f2-c9d8e7a6b5f4',
-    role: 'assistant',
-    content:
-      "Based on the latest data, Tokyo is currently experiencing sunny weather with temperatures around 24°C (75°F). It's a beautiful day with clear skies."
-  }
-])
-</script>
-
-<template>
-  <UChatMessages
-    :assistant="{
-      side: 'left',
-      variant: 'outline',
-      avatar: {
-        icon: 'i-lucide-bot'
-      },
-      actions: [
-        {
-          label: '复制到剪贴板',
-          icon: 'i-lucide-copy'
-        }
-      ]
-    }"
-    :messages="messages"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - messages
+  - avatar.icon
+  - assistant.action
+hide:
+items:
+  assistant.side:
+    - left
+    - right
+  assistant.variant:
+    - solid
+    - outline
+    - subtle
+    - soft
+    - naked
+external:
+    - messages
+externalTypes:
+props:
+  assistant:
+    side: 'left'
+    variant: 'outline'
+    avatar:
+      icon: 'i-lucide-bot'
+    action: 
+      - label: 'Copy to clipboard'
+        icon: 'i-lucide-copy'
+  messages:
+    - id: '6045235a-a435-46b8-989d-2df38ca2eb47'
+      role: 'user'
+      content: 'Hello, how are you?'
+    - id: '7a92b3c1-d5f8-4e76-b8a9-3c1e5fb2e0d8'
+      role: 'assistant'
+      content: 'I am doing well, thank you for asking! How can I assist you today?'
+    - id: '9c84d6a7-8b23-4f12-a1d5-e7f3b9c05e2a'
+      role: 'user'
+      content: 'What is the current weather in Tokyo?'
+    - id: 'b2e5f8c3-a1d9-4e67-b3f2-c9d8e7a6b5f4'
+      role: 'assistant'
+      content: "Based on the latest data, Tokyo is currently experiencing sunny weather with temperatures around 24°C (75°F). It's a beautiful day with clear skies."
+---
 ::
-
 
 ### 自动滚动 (Auto Scroll)
 
@@ -240,117 +216,94 @@ const messages = ref([
 
 你可以传递 [Button](/ui/components/button) 组件的任何属性来自定义它。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const messages = ref([
-  {
-    id: '6045235a-a435-46b8-989d-2df38ca2eb47',
-    role: 'user',
-    content: 'Hello, how are you?'
-  },
-  {
-    id: '7a92b3c1-d5f8-4e76-b8a9-3c1e5fb2e0d8',
-    role: 'assistant',
-    content: 'I am doing well, thank you for asking! How can I assist you today?'
-  },
-  {
-    id: '9c84d6a7-8b23-4f12-a1d5-e7f3b9c05e2a',
-    role: 'user',
-    content: 'What is the current weather in Tokyo?'
-  },
-  {
-    id: 'b2e5f8c3-a1d9-4e67-b3f2-c9d8e7a6b5f4',
-    role: 'assistant',
-    content:
-      "Based on the latest data, Tokyo is currently experiencing sunny weather with temperatures around 24°C (75°F). It's a beautiful day with clear skies. The forecast for the rest of the week shows a slight chance of rain on Thursday, with temperatures gradually rising to 28°C by the weekend. Humidity levels are moderate at around 65%, and wind speeds are light at 8 km/h from the southeast. Air quality is good with an index of 42. The UV index is high at 7, so it's recommended to wear sunscreen if you're planning to spend time outdoors. Sunrise was at 5:24 AM and sunset will be at 6:48 PM, giving Tokyo approximately 13 hours and 24 minutes of daylight today. The moon is currently in its waxing gibbous phase."
-  },
-  {
-    id: 'c3e5f8c3-a1d9-4e67-b3f2-c9d8e7a6b5f4',
-    role: 'user',
-    content: 'Can you recommend some popular tourist attractions in Kyoto?'
-  },
-  {
-    id: 'd4f5g8c3-a1d9-4e67-b3f2-c9d8e7a6b5f4',
-    role: 'assistant',
-    content:
-      'Kyoto is known for its beautiful temples, traditional tea houses, and gardens. Some popular attractions include Kinkaku-ji (Golden Pavilion) with its stunning gold leaf exterior reflecting in the mirror pond, Fushimi Inari Shrine with its thousands of vermilion torii gates winding up the mountainside, Arashiyama Bamboo Grove where towering stalks create an otherworldly atmosphere, Kiyomizu-dera Temple perched on a hillside offering panoramic views of the city, and the historic Gion district where you might spot geisha hurrying to evening appointments through narrow stone-paved streets lined with traditional wooden machiya houses.'
-  }
-])
-</script>
-
-<template>
-  <UChatMessages
-    :auto-scroll="{
-      color: 'neutral',
-      variant: 'outline'
-    }"
-    :should-scroll-to-bottom="false"
-    :messages="messages"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+collapse: true
+ignore:
+  - messages
+  - auto-scroll
+  - should-scroll-to-bottom
+  - auto-scroll.color
+  - auto-scroll.variant
+hide:
+  - class
+external:
+  - messages
+externalTypes:
+props:
+  class: 'overflow-y-auto max-h-[341px] static'
+  auto-scroll:
+    color: 'neutral'
+    variant: 'outline'
+  should-scroll-to-bottom: 'false'
+  messages:
+    - id: '6045235a-a435-46b8-989d-2df38ca2eb47'
+      role: 'user'
+      content: 'Hello, how are you?'
+    - id: '7a92b3c1-d5f8-4e76-b8a9-3c1e5fb2e0d8'
+      role: 'assistant'
+      content: 'I am doing well, thank you for asking! How can I assist you today?'
+    - id: '9c84d6a7-8b23-4f12-a1d5-e7f3b9c05e2a'
+      role: 'user'
+      content: 'What is the current weather in Tokyo?'
+    - id: 'b2e5f8c3-a1d9-4e67-b3f2-c9d8e7a6b5f4'
+      role: 'assistant'
+      content: "Based on the latest data, Tokyo is currently experiencing sunny weather with temperatures around 24°C (75°F). It's a beautiful day with clear skies. The forecast for the rest of the week shows a slight chance of rain on Thursday, with temperatures gradually rising to 28°C by the weekend. Humidity levels are moderate at around 65%, and wind speeds are light at 8 km/h from the southeast. Air quality is good with an index of 42. The UV index is high at 7, so it's recommended to wear sunscreen if you're planning to spend time outdoors. Sunrise was at 5:24 AM and sunset will be at 6:48 PM, giving Tokyo approximately 13 hours and 24 minutes of daylight today. The moon is currently in its waxing gibbous phase."
+    - id: 'c3e5f8c3-a1d9-4e67-b3f2-c9d8e7a6b5f4'
+      role: 'user'
+      content: 'Can you recommend some popular tourist attractions in Kyoto?'
+    - id: 'd4f5g8c3-a1d9-4e67-b3f2-c9d8e7a6b5f4'
+      role: 'assistant'
+      content: 'Kyoto is known for its beautiful temples, traditional tea houses, and gardens. Some popular attractions include Kinkaku-ji (Golden Pavilion) with its stunning gold leaf exterior reflecting in the mirror pond, Fushimi Inari Shrine with its thousands of vermilion torii gates winding up the mountainside, Arashiyama Bamboo Grove where towering stalks create an otherworldly atmosphere, Kiyomizu-dera Temple perched on a hillside offering panoramic views of the city, and the historic Gion district where you might spot geisha hurrying to evening appointments through narrow stone-paved streets lined with traditional wooden machiya houses.'
+---
 ::
 
 ### 自动滚动图标 (Auto Scroll Icon)
 
 使用 `auto-scroll-icon` prop 自定义自动滚动按钮的 [Icon](/ui/components/icon)。默认为 `i-lucide-arrow-down`。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const messages = ref([
-  {
-    id: '6045235a-a435-46b8-989d-2df38ca2eb47',
-    role: 'user',
-    content: 'Hello, how are you?'
-  },
-  {
-    id: '7a92b3c1-d5f8-4e76-b8a9-3c1e5fb2e0d8',
-    role: 'assistant',
-    content: 'I am doing well, thank you for asking! How can I assist you today?'
-  },
-  {
-    id: '9c84d6a7-8b23-4f12-a1d5-e7f3b9c05e2a',
-    role: 'user',
-    content: 'What is the current weather in Tokyo?'
-  },
-  {
-    id: 'b2e5f8c3-a1d9-4e67-b3f2-c9d8e7a6b5f4',
-    role: 'assistant',
-    content:
-      "Based on the latest data, Tokyo is currently experiencing sunny weather with temperatures around 24°C (75°F). It's a beautiful day with clear skies. The forecast for the rest of the week shows a slight chance of rain on Thursday, with temperatures gradually rising to 28°C by the weekend. Humidity levels are moderate at around 65%, and wind speeds are light at 8 km/h from the southeast. Air quality is good with an index of 42. The UV index is high at 7, so it's recommended to wear sunscreen if you're planning to spend time outdoors. Sunrise was at 5:24 AM and sunset will be at 6:48 PM, giving Tokyo approximately 13 hours and 24 minutes of daylight today. The moon is currently in its waxing gibbous phase."
-  },
-  {
-    id: 'c3e5f8c3-a1d9-4e67-b3f2-c9d8e7a6b5f4',
-    role: 'user',
-    content: 'Can you recommend some popular tourist attractions in Kyoto?'
-  },
-  {
-    id: 'd4f5g8c3-a1d9-4e67-b3f2-c9d8e7a6b5f4',
-    role: 'assistant',
-    content:
-      'Kyoto is known for its beautiful temples, traditional tea houses, and gardens. Some popular attractions include Kinkaku-ji (Golden Pavilion) with its stunning gold leaf exterior reflecting in the mirror pond, Fushimi Inari Shrine with its thousands of vermilion torii gates winding up the mountainside, Arashiyama Bamboo Grove where towering stalks create an otherworldly atmosphere, Kiyomizu-dera Temple perched on a hillside offering panoramic views of the city, and the historic Gion district where you might spot geisha hurrying to evening appointments through narrow stone-paved streets lined with traditional wooden machiya houses.'
-  }
-])
-</script>
-
-<template>
-  <UChatMessages
-    auto-scroll-icon="i-lucide-chevron-down"
-    :should-scroll-to-bottom="false"
-    :messages="messages"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+collapse: true
+ignore:
+  - messages
+  - auto-scroll
+  - should-scroll-to-bottom
+  - auto-scroll.color
+  - auto-scroll.variant
+hide:
+  - class
+external:
+  - messages
+externalTypes:
+props:
+  class: 'overflow-y-auto max-h-[341px] static'
+  auto-scroll-icon: 'i-lucide-chevron-down'
+  should-scroll-to-bottom: 'false'
+  messages:
+    - id: '6045235a-a435-46b8-989d-2df38ca2eb47'
+      role: 'user'
+      content: 'Hello, how are you?'
+    - id: '7a92b3c1-d5f8-4e76-b8a9-3c1e5fb2e0d8'
+      role: 'assistant'
+      content: 'I am doing well, thank you for asking! How can I assist you today?'
+    - id: '9c84d6a7-8b23-4f12-a1d5-e7f3b9c05e2a'
+      role: 'user'
+      content: 'What is the current weather in Tokyo?'
+    - id: 'b2e5f8c3-a1d9-4e67-b3f2-c9d8e7a6b5f4'
+      role: 'assistant'
+      content: "Based on the latest data, Tokyo is currently experiencing sunny weather with temperatures around 24°C (75°F). It's a beautiful day with clear skies. The forecast for the rest of the week shows a slight chance of rain on Thursday, with temperatures gradually rising to 28°C by the weekend. Humidity levels are moderate at around 65%, and wind speeds are light at 8 km/h from the southeast. Air quality is good with an index of 42. The UV index is high at 7, so it's recommended to wear sunscreen if you're planning to spend time outdoors. Sunrise was at 5:24 AM and sunset will be at 6:48 PM, giving Tokyo approximately 13 hours and 24 minutes of daylight today. The moon is currently in its waxing gibbous phase."
+    - id: 'c3e5f8c3-a1d9-4e67-b3f2-c9d8e7a6b5f4'
+      role: 'user'
+      content: 'Can you recommend some popular tourist attractions in Kyoto?'
+    - id: 'd4f5g8c3-a1d9-4e67-b3f2-c9d8e7a6b5f4'
+      role: 'assistant'
+      content: 'Kyoto is known for its beautiful temples, traditional tea houses, and gardens. Some popular attractions include Kinkaku-ji (Golden Pavilion) with its stunning gold leaf exterior reflecting in the mirror pond, Fushimi Inari Shrine with its thousands of vermilion torii gates winding up the mountainside, Arashiyama Bamboo Grove where towering stalks create an otherworldly atmosphere, Kiyomizu-dera Temple perched on a hillside offering panoramic views of the city, and the historic Gion district where you might spot geisha hurrying to evening appointments through narrow stone-paved streets lined with traditional wooden machiya houses.'
+---
 ::
 
 ::tip
@@ -392,7 +345,7 @@ const messages = ref([
 在页面中使用 `ChatMessages` 组件和 `useChat` 可组合函数来显示聊天消息列表。
 传递 `messages` prop 以及 `status` prop，后者将用于自动滚动和指示器显示。
 
-```vue [pages/[id].vue]
+```vue{4,11-15} [pages/[id].vue]
 <script setup lang="ts">
 import { useChat } from '@ai-sdk/vue'
 

@@ -17,63 +17,47 @@ links:
 
 使用 `surround` prop，其值为你获取页面环绕内容时得到的值。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const route = useRoute()
-
-const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
-  return queryCollectionItemSurroundings('content', route.path, {
-    fields: ['description']
-  })
-})
-</script>
-
-<template>
-  <UContentSurround :surround="(surround as any)" />
-</template>
-```
+::component-example
+---
+name: 'content-surround-example'
+---
 ::
 
 ### 上一个 / 下一个 (Prev / Next)
 
 使用 `prev-icon` 和 `next-icon` props 来自定义按钮的 `Icon`。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const surround = ref([
-  {
-    title: 'ContentSearchButton',
-    path: '/components/content-search-button',
-    stem: '3.components/content-search-button',
-    description: 'A pre-styled Button to open the ContentSearch modal.'
-  },
-  {
-    title: 'ContentToc',
-    path: '/components/content-toc',
-    stem: '3.components/content-toc',
-    description: 'A sticky Table of Contents with customizable slots.'
-  }
-])
-</script>
-
-<template>
-  <UContentSurround
-    prev-icon="i-lucide-chevron-left"
-    next-icon="i-lucide-chevron-right"
-    :surround="surround"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prefix: 'content'
+prettier: true
+collapse: true
+ignore:
+  - class
+  - prev-icon
+  - next-icon
+  - surround
+hide:
+  - class
+external:
+  - surround
+externalTypes:
+  - ContentSurroundLink
+props:
+  class: 'px-4'
+  prev-icon: "i-lucide-chevron-left"
+  next-icon: "i-lucide-chevron-right"
+  surround:
+    - title: 'ContentSearchButton'
+      path: '/components/content-search-button'
+      stem: '3.components/content-search-button'
+      description: 'A pre-styled Button to open the ContentSearch modal.'
+    - title: 'ContentToc'
+      path: '/components/content-toc'
+      stem:  '3.components/content-toc'
+      description: 'A sticky Table of Contents with customizable slots.'
+---
 ::
 
 ## 示例 (Examples)

@@ -16,16 +16,20 @@ links:
 
 `ColorModeButton` 组件扩展了 `Button` 组件，因此你可以传递任何属性，例如 `color`、`variant`、`size` 等。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UColorModeButton />
-</template>
-```
+::component-code
+---
+pro: true
+prefix: 'color-mode'
+prettier: true
+ignore:
+  - class
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'max-w-md'
+---
 ::
 
 ::note
@@ -53,20 +57,24 @@ export default defineAppConfig({
 
 由于该按钮被包裹在 `ClientOnly` 组件中，你可以传递一个 `fallback` 插槽来在组件加载时显示一个占位符。
 
-::code-preview
+::component-code
+---
+pro: true
+prefix: 'color-mode'
+prettier: true
+ignore:
+  - class
+hide:
+  - class
+external:
+externalTypes:
+slots:
+  fallback: |
 
-TODO
-
-#code
-```vue
-<template>
-  <UColorModeButton>
-    <template #fallback>
-      <UButton loading variant="ghost" color="neutral" />
-    </template>
-  </UColorModeButton>
-</template>
-```
+    <UButton loading variant="ghost" color="neutral" />
+props:
+  class: 'max-w-md'
+---
 ::
 
 ## API

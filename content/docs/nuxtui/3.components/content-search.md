@@ -22,7 +22,7 @@ links:
 
 使用 `files` 和 `navigation` props，它们的值是你使用 `@nuxt/content` 中的 `queryCollectionSearchSections` 和 `queryCollectionNavigation` 可组合函数获取到的 `files` 和 `navigation` 值。
 
-TODO
+TODO 点击右上角搜索按钮查看效果。
 
 ::tip
 你可以通过按下 **`Ctrl K`**、使用 `ContentSearchButton` 组件或使用 `useContentSearch` 可组合函数来打开命令面板：`const { open } = useContentSearch()`。

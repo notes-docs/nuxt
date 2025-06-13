@@ -77,4 +77,3 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 npm install --force --platform=linux
 npm rebuild better-sqlite3 --platform=linux --update-binary
 
-

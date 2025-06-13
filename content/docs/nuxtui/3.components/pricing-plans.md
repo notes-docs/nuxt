@@ -33,114 +33,94 @@ links:
 
 使用 `plans` prop 作为对象数组，其中包含 `PricingPlan` 组件的属性。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const plans = ref([
-  {
-    title: '个人版',
-    description: '专为独立开发者定制。',
-    price: '$249',
-    features: [
-      '一名开发者',
-      '终身访问'
-    ],
-    button: {
-      label: '立即购买'
-    }
-  },
-  {
-    title: '创业版',
-    description: '最适合小型团队。',
-    price: '$499',
-    features: [
-      '最多 5 名开发者',
-      '包含个人版所有功能'
-    ],
-    button: {
-      label: '立即购买'
-    }
-  },
-  {
-    title: '组织版',
-    description: '大型团队和组织的理想选择。',
-    price: '$999',
-    features: [
-      '最多 20 名开发者',
-      '包含创业版所有功能'
-    ],
-    button: {
-      label: '立即购买'
-    }
-  }
-])
-</script>
-
-<template>
-  <UPricingPlans :plans="plans" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+class: 'rounded-t-md'
+ignore:
+  - class
+  - plans
+hide:
+  - class
+external:
+  - plans
+externalTypes:
+props:
+  plans:
+    - title: 'Solo'
+      description: 'Tailored for indie hackers.'
+      price: '$249'
+      features: 
+        - 'One developer'
+        - 'Lifetime access'
+      button: 
+        label: 'Buy now'
+    - title: 'Startup'
+      description: 'Best suited for small teams.'
+      price: '$499'
+      features:
+        - 'Up to 5 developers'
+        - 'Everything in Solo'
+      button:
+        label: 'Buy now'
+    - title: 'Organization'
+      description: 'Ideal for larger teams and organizations.'
+      price: '$999'
+      features:
+        - 'Up to 20 developers'
+        - 'Everything in Startup'
+      button:
+        label: 'Buy now'
+---
 ::
 
 ### 方向
 
 使用 `orientation` prop 更改 `PricingPlans` 的方向。默认为 `horizontal`。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const plans = ref([
-  {
-    title: '个人版',
-    description: '专为独立开发者定制。',
-    price: '$249',
-    features: [
-      '一名开发者',
-      '终身访问'
-    ],
-    button: {
-      label: '立即购买'
-    }
-  },
-  {
-    title: '创业版',
-    description: '最适合小型团队。',
-    price: '$499',
-    features: [
-      '最多 5 名开发者',
-      '包含个人版所有功能'
-    ],
-    button: {
-      label: '立即购买'
-    }
-  },
-  {
-    title: '组织版',
-    description: '大型团队和组织的理想选择。',
-    price: '$999',
-    features: [
-      '最多 20 名开发者',
-      '包含创业版所有功能'
-    ],
-    button: {
-      label: '立即购买'
-    }
-  }
-])
-</script>
-
-<template>
-  <UPricingPlans orientation="vertical" :plans="plans" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+class: 'rounded-t-md'
+ignore:
+  - class
+  - plans
+hide:
+  - class
+external:
+  - plans
+externalTypes:
+props:
+  class: 'w-full'
+  orientation: 'vertical'
+  plans:
+    - title: 'Solo'
+      description: 'Tailored for indie hackers.'
+      price: '$249'
+      features:
+        - 'One developer'
+        - 'Lifetime access'
+      button:
+        label: 'Buy now'
+    - title: 'Startup'
+      description: 'Best suited for small teams.'
+      price: '$499'
+      features:
+        - 'Up to 5 developers'
+        - 'Everything in Solo'
+      button:
+        label: 'Buy now'
+    - title: 'Organization'
+      description: 'Ideal for larger teams and organizations.'
+      price: '$999'
+      features:
+        - 'Up to 20 developers'
+        - 'Everything in Startup'
+      button:
+        label: 'Buy now'
+---
 ::
 
 ::tip
@@ -151,116 +131,98 @@ const plans = ref([
 
 使用 `compact` prop 减小计划之间的填充，当其中一个计划被放大时，以获得更好的视觉平衡。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const plans = ref([
-  {
-    title: '个人版',
-    description: '专为独立开发者定制。',
-    price: '$249',
-    features: [
-      '一名开发者',
-      '终身访问'
-    ],
-    button: {
-      label: '立即购买'
-    }
-  },
-  {
-    title: '创业版',
-    description: '最适合小型团队。',
-    price: '$499',
-    scale: true,
-    features: [
-      '最多 5 名开发者',
-      '包含个人版所有功能'
-    ],
-    button: {
-      label: '立即购买'
-    }
-  },
-  {
-    title: '组织版',
-    description: '大型团队和组织的理想选择。',
-    price: '$999',
-    features: [
-      '最多 20 名开发者',
-      '包含创业版所有功能'
-    ],
-    button: {
-      label: '立即购买'
-    }
-  }
-])
-</script>
-
-<template>
-  <UPricingPlans compact :plans="plans" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+class: 'rounded-t-md p-8'
+ignore:
+  - class
+  - plans
+  - compact
+hide:
+  - class
+external:
+  - plans
+externalTypes:
+props:
+  compact: true
+  plans:
+    - title: 'Solo'
+      description: 'Tailored for indie hackers.'
+      price: '$249'
+      features:
+        - 'One developer'
+        - 'Lifetime access'
+      button:
+        label: 'Buy now'
+    - title: 'Startup'
+      description: 'Best suited for small teams.'
+      price: '$499'
+      scale: true
+      features:
+        - 'Up to 5 developers'
+        - 'Everything in Solo'
+      button:
+        label: 'Buy now'
+    - title: 'Organization'
+      description: 'Ideal for larger teams and organizations.'
+      price: '$999'
+      features:
+        - 'Up to 20 developers'
+        - 'Everything in Startup'
+      button:
+        label: 'Buy now'
+---
 ::
 
 ### 缩放
 
 使用 `scale` prop 调整计划之间的间距，当其中一个计划被放大时，以获得更好的视觉平衡。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const plans = ref([
-  {
-    title: '个人版',
-    description: '专为独立开发者定制。',
-    price: '$249',
-    features: [
-      '一名开发者',
-      '终身访问'
-    ],
-    button: {
-      label: '立即购买'
-    }
-  },
-  {
-    title: '创业版',
-    description: '最适合小型团队。',
-    price: '$499',
-    scale: true,
-    features: [
-      '最多 5 名开发者',
-      '包含个人版所有功能'
-    ],
-    button: {
-      label: '立即购买'
-    }
-  },
-  {
-    title: '组织版',
-    description: '大型团队和组织的理想选择。',
-    price: '$999',
-    features: [
-      '最多 20 名开发者',
-      '包含创业版所有功能'
-    ],
-    button: {
-      label: '立即购买'
-    }
-  }
-])
-</script>
-
-<template>
-  <UPricingPlans scale :plans="plans" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+class: 'rounded-t-md p-8'
+ignore:
+  - class
+  - plans
+  - scale
+hide:
+  - class
+external:
+  - plans
+externalTypes:
+props:
+  scale: false
+  plans:
+    - title: 'Solo'
+      description: 'Tailored for indie hackers.'
+      price: '$249'
+      features:
+        - 'One developer'
+        - 'Lifetime access'
+      button:
+        label: 'Buy now'
+    - title: 'Startup'
+      description: 'Best suited for small teams.'
+      price: '$499'
+      scale: true
+      features:
+        - 'Up to 5 developers'
+        - 'Everything in Solo'
+      button:
+        label: 'Buy now'
+    - title: 'Organization'
+      description: 'Ideal for larger teams and organizations.'
+      price: '$999'
+      features:
+        - 'Up to 20 developers'
+        - 'Everything in Startup'
+      button:
+        label: 'Buy now'
+---
 ::
 
 ## 示例
@@ -273,7 +235,7 @@ const plans = ref([
 
 在页面中使用 `PricingPlans` 组件创建定价页面：
 
-```vue [pages/pricing/index.vue]
+```vue{11} [pages/pricing/index.vue]
 <script setup lang="ts">
 const { data: plans } = await useAsyncData('plans', () => queryCollection('plans').all())
 </script>

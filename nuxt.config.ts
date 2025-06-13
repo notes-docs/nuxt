@@ -89,9 +89,7 @@ export default defineNuxtConfig({
     '/docs/nuxt/community/nuxt-community': { redirect: '/docs/nuxt/community/getting-help', prerender: false },
     '/docs/nuxt/guide/recipes': { redirect: '/docs/nuxt/guide/recipes/custom-routing', prerender: false },
     '/docs/nuxt/guide/best-practices': { redirect: '/docs/nuxt/guide/best-practices/performance', prerender: false },
-    '/docs/nuxt/guide/going-further/custom-routing': { redirect: '/docs/nuxt/guide/recipes/custom-routing', prerender: false },
-
-    // '/ui/pro/getting-started/**': { redirect: { to: '/ui/getting-started/installation/pro/nuxt', statusCode: 301 }, prerender: false }
+    '/docs/nuxt/guide/going-further/custom-routing': { redirect: '/docs/nuxt/guide/recipes/custom-routing', prerender: false }
   },
   future: {
     compatibilityVersion: 4
@@ -115,11 +113,10 @@ export default defineNuxtConfig({
     build: {
       sourcemap: false
     },
-    // server: {
-    //   fs: {
-    //     strict: false // 允许访问项目外文件
-    //   }
-    // }
+    optimizeDeps: {
+      // prevents reloading page when navigating between components
+      include: ['@internationalized/date', '@vueuse/shared', '@vueuse/integrations/useFuse', '@tanstack/vue-table', 'reka-ui', 'reka-ui/namespaced', 'embla-carousel-vue', 'embla-carousel-autoplay', 'embla-carousel-auto-scroll', 'embla-carousel-auto-height', 'embla-carousel-class-names', 'embla-carousel-fade', 'embla-carousel-wheel-gestures', 'colortranslator', 'tailwindcss/colors', 'tailwind-variants', 'ufo', 'zod', 'vaul-vue', 'scule', 'motion-v', 'json5', 'ohash', 'shiki-transformer-color-highlight']
+    }
   },
   typescript: {
     strict: false
@@ -158,11 +155,6 @@ export default defineNuxtConfig({
       exposed: false
     }
   },
-  // vite: {
-  //   plugins: [
-  //     tailwindcss()
-  //   ]
-  // },
   eslint: {
     config: {
       stylistic: {
@@ -205,5 +197,5 @@ export default defineNuxtConfig({
     enableInDev: true,
     // Do not throw when twoslash fails, the typecheck should be down in github.com/nuxt/nuxt's CI
     throws: true
-  }
+  },
 })

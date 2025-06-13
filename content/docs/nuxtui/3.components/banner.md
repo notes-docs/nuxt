@@ -14,48 +14,60 @@ links:
 
 使用 `title` prop 在横幅上显示标题。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UBanner title="This is a banner with an important message." />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+hide:
+  - class
+props:
+  class: 'px-4'
+  title: 'This is a banner with an important message.'
+---
 ::
 
 ### 图标 (Icon)
 
 使用 `icon` prop 在横幅上显示图标。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UBanner icon="i-lucide-info" title="This is a banner with an icon." />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+hide:
+  - class
+props:
+  class: 'px-4'
+  icon: 'i-lucide-info'
+  title: 'This is a banner with an important message.'
+---
 ::
 
 ### 颜色 (Color)
 
 使用 `color` prop 更改横幅的颜色。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UBanner color="neutral" icon="i-lucide-info" title="This is a banner with an icon." />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - icon
+hide:
+  - class
+props:
+  color: 'neutral'
+  class: 'px-4'
+  icon: 'i-lucide-info'
+  title: 'This is a banner with an important message.'
+---
 ::
 
 ### 关闭 (Close)
@@ -66,16 +78,23 @@ TODO
 当点击关闭按钮时，将发出一个 `close` 事件。
 ::
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UBanner id="example" title="This is a closable banner." close />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - id
+  - class
+  - close
+  - title
+hide:
+  - class
+props:
+  id: 'example'
+  class: 'px-4'
+  title: 'This is a banner with an important message.'
+  close: true
+---
 ::
 
 ::note
@@ -88,20 +107,25 @@ TODO
 
 使用 `close-icon` prop 自定义关闭按钮的 [Icon](https://ui.nuxt.com/components/icon)。默认为 `i-lucide-x`。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UBanner
-    title="This is a closable banner with a custom close icon."
-    close
-    close-icon="i-lucide-x-circle"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - id
+  - class
+  - close
+  - title
+  - close-icon
+hide:
+  - class
+props:
+  id: 'example'
+  class: 'px-4'
+  title: 'This is a banner with an important message.'
+  close: true
+  close-icon: 'i-lucide-x-circle'
+---
 ::
 
 ::tip
@@ -112,29 +136,27 @@ TODO
 
 使用 `actions` prop 为横幅添加一些 `Button` 动作。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const actions = ref([
-  {
-    label: 'Action 1',
-    variant: 'outline'
-  },
-  {
-    label: 'Action 2',
-    trailingIcon: 'i-lucide-arrow-right'
-  }
-])
-</script>
-
-<template>
-  <UBanner title="This is a banner with actions." :actions="actions" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - actions
+external:
+  - actions
+hide:
+  - class
+props:
+  class: 'px-4'
+  title: 'This is a banner with an important message.'
+  actions:
+    - label: 'Action 1'
+      variant: 'outline'
+    - label: 'Action 2'
+      trailingIcon: 'i-lucide-arrow-right'
+---
 ::
 
 ::note
@@ -145,21 +167,24 @@ const actions = ref([
 
 你可以传递 `NuxtLink` 组件的任何属性，例如 `to`、`target`、`rel` 等。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UBanner
-    to="https://github.com/nuxt/ui-pro"
-    target="_blank"
-    title="Purchase Nuxt UI Pro and get access to all components."
-    color="primary"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - to
+  - target
+  - title
+hide:
+  - class
+props:
+  class: 'px-4'
+  to: 'https://github.com/nuxt/ui-pro'
+  target: '_blank'
+  title: 'This is a banner with an important message.'
+  color: 'primary'
+---
 ::
 
 ::note
@@ -172,7 +197,7 @@ TODO
 
 在 `app.vue` 或布局中使用 Banner 组件：
 
-```vue [app.vue]
+```vue{3} [app.vue]
 <template>
   <UApp>
     <UBanner icon="i-lucide-construction" title="Nuxt UI v3 has been released!" />
@@ -208,6 +233,3 @@ TODO
 
 :component-theme{pro=true}
 
-::callout{icon="i-simple-icons-github" color="neutral" to="https://github.com/nuxt/ui-pro/blob/v3/src/theme/banner.ts"}
-为了可读性，`compoundVariants` 中的某些颜色被省略。请查看 GitHub 上的源代码。
-::

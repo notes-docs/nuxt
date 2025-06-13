@@ -17,178 +17,140 @@ links:
 
 使用 `navigation` prop，其值为你在获取应用程序导航时获得的值。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-import type { ContentNavigationItem } from '@nuxt/content'
-
-const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
-</script>
-
-<template>
-  <UContentNavigation :navigation="navigation" highlight />
-</template>
-```
+::component-example
+---
+name: 'content-navigation-example'
+class: 'flex justify-start h-64 overflow-y-auto'
+---
 ::
 
 ### 类型 (Type)
 
 将 `type` prop 设置为 `single`，只允许同时打开一个项目。默认为 `multiple`。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const navigation = ref([
-  {
-    title: '指南',
-    icon: 'i-lucide-book-open',
-    path: '#getting-started',
-    children: [
-      {
-        title: '介绍',
-        path: '#introduction',
-        active: true
-      },
-      {
-        title: '安装',
-        path: '#installation'
-      }
-    ]
-  },
-  {
-    title: '可组合函数',
-    icon: 'i-lucide-database',
-    path: '#composables',
-    children: [
-      {
-        title: 'defineShortcuts',
-        path: '#defineshortcuts'
-      },
-      {
-        title: 'useModal',
-        path: '#usemodal'
-      }
-    ]
-  }
-])
-</script>
-
-<template>
-  <UContentNavigation type="single" />
-</template>
-```
+::component-code
+---
+pro: true
+prefix: 'content'
+prettier: true
+collapse: true
+ignore:
+  - class
+  - navigation
+hide:
+  - class
+external:
+  - navigation
+externalTypes:
+  - ContentNavigationItem
+props:
+  class: 'flex justify-start'
+  type: 'single'
+  navigation:
+    - title: 'Guide'
+      icon: 'i-lucide-book-open'
+      path: '#getting-started'
+      children:
+        - title: 'Introduction'
+          path:  '#introduction'
+          active: true
+        - title: 'Installation'
+          path: '#installation'
+    - title: 'Composables'
+      icon: 'i-lucide-database'
+      path: '#composables'
+      children:
+        - title: 'defineShortcuts'
+          path: '#defineshortcuts'
+        - title: 'useModal'
+          path: '#usemodal'
+---
 ::
 
 ### 颜色 (Color)
 
 使用 `color` prop 更改导航链接的颜色。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const navigation = ref([
-  {
-    title: '指南',
-    icon: 'i-lucide-book-open',
-    path: '#getting-started',
-    children: [
-      {
-        title: '介绍',
-        path: '#introduction',
-        active: true
-      },
-      {
-        title: '安装',
-        path: '#installation'
-      }
-    ]
-  },
-  {
-    title: '可组合函数',
-    icon: 'i-lucide-database',
-    path: '#composables',
-    children: [
-      {
-        title: 'defineShortcuts',
-        path: '#defineshortcuts'
-      },
-      {
-        title: 'useModal',
-        path: '#usemodal'
-      }
-    ]
-  }
-])
-</script>
-
-<template>
-  <UContentNavigation color="neutral" />
-</template>
-```
+::component-code
+---
+pro: true
+prefix: 'content'
+prettier: true
+collapse: true
+ignore:
+  - class
+  - navigation
+hide:
+  - class
+external:
+  - navigation
+externalTypes:
+  - ContentNavigationItem
+props:
+  class: 'flex justify-start'
+  color: 'neutral'
+  navigation:
+    - title: 'Guide'
+      icon: 'i-lucide-book-open'
+      path: '#getting-started'
+      children:
+        - title: 'Introduction'
+          path:  '#introduction'
+          active: true
+        - title: 'Installation'
+          path: '#installation'
+    - title: 'Composables'
+      icon: 'i-lucide-database'
+      path: '#composables'
+      children:
+        - title: 'defineShortcuts'
+          path: '#defineshortcuts'
+        - title: 'useModal'
+          path: '#usemodal'
+---
 ::
 
 ### 变体 (Variant)
 
 使用 `variant` prop 更改导航链接的变体。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const navigation = ref([
-  {
-    title: '指南',
-    icon: 'i-lucide-book-open',
-    path: '#getting-started',
-    children: [
-      {
-        title: '介绍',
-        path: '#introduction',
-        active: true
-      },
-      {
-        title: '安装',
-        path: '#installation'
-      }
-    ]
-  },
-  {
-    title: '可组合函数',
-    icon: 'i-lucide-database',
-    path: '#composables',
-    children: [
-      {
-        title: 'defineShortcuts',
-        path: '#defineshortcuts'
-      },
-      {
-        title: 'useModal',
-        path: '#usemodal'
-      }
-    ]
-  }
-])
-</script>
-
-<template>
-  <UContentNavigation variant="link" />
-</template>
-```
+::component-code
+---
+pro: true
+prefix: 'content'
+prettier: true
+collapse: true
+ignore:
+  - class
+  - navigation
+hide:
+  - class
+external:
+  - navigation
+externalTypes:
+  - ContentNavigationItem
+props:
+  class: 'flex justify-start'
+  variant: 'link'
+  navigation:
+    - title: 'Guide'
+      icon: 'i-lucide-book-open'
+      path: '#getting-started'
+      children:
+        - title: 'Introduction'
+          path:  '#introduction'
+          active: true
+        - title: 'Installation'
+          path: '#installation'
+    - title: 'Composables'
+      icon: 'i-lucide-database'
+      path: '#composables'
+      children:
+        - title: 'defineShortcuts'
+          path: '#defineshortcuts'
+        - title: 'useModal'
+          path: '#usemodal'
+---
 ::
 
 ### 高亮 (Highlight)
@@ -197,102 +159,97 @@ const navigation = ref([
 
 使用 `highlight-color` prop 更改边框的颜色。它默认为 `color` prop 的值。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const navigation = ref([
-  {
-    title: '指南',
-    icon: 'i-lucide-book-open',
-    path: '#getting-started',
-    children: [
-      {
-        title: '介绍',
-        path: '#introduction',
-        active: true
-      },
-      {
-        title: '安装',
-        path: '#installation'
-      }
-    ]
-  },
-  {
-    title: '可组合函数',
-    icon: 'i-lucide-database',
-    path: '#composables',
-    children: [
-      {
-        title: 'defineShortcuts',
-        path: '#defineshortcuts'
-      },
-      {
-        title: 'useModal',
-        path: '#usemodal'
-      }
-    ]
-  }
-])
-</script>
-
-<template>
-  <UContentNavigation highlight highlight-color="primary" color="primary" variant="pill" />
-</template>
-```
+::component-code
+---
+pro: true
+prefix: 'content'
+prettier: true
+collapse: true
+ignore:
+  - class
+  - navigation
+hide:
+  - class
+external:
+  - navigation
+externalTypes:
+  - ContentNavigationItem
+items:
+  highlight-color:
+    - 'primary'
+    - 'secondary'
+    - 'success'
+    - 'info'
+    - 'warning'
+    - 'danger'
+    - 'error'
+    - 'neutral'
+props:
+  class: 'flex justify-start'
+  highlight: true
+  highlight-color: 'primary'
+  color: 'primary'
+  variant: 'pill'
+  navigation:
+    - title: 'Guide'
+      icon: 'i-lucide-book-open'
+      path: '#getting-started'
+      children:
+        - title: 'Introduction'
+          path:  '#introduction'
+          active: true
+        - title: 'Installation'
+          path: '#installation'
+    - title: 'Composables'
+      icon: 'i-lucide-database'
+      path: '#composables'
+      children:
+        - title: 'defineShortcuts'
+          path: '#defineshortcuts'
+        - title: 'useModal'
+          path: '#usemodal'
+---
 ::
 
 ### 尾随图标 (Trailing Icon)
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const navigation = ref([
-  {
-    title: '指南',
-    icon: 'i-lucide-book-open',
-    path: '#getting-started',
-    children: [
-      {
-        title: '介绍',
-        path: '#introduction',
-        active: true
-      },
-      {
-        title: '安装',
-        path: '#installation'
-      }
-    ]
-  },
-  {
-    title: '可组合函数',
-    icon: 'i-lucide-database',
-    path: '#composables',
-    children: [
-      {
-        title: 'defineShortcuts',
-        path: '#defineshortcuts'
-      },
-      {
-        title: 'useModal',
-        path: '#usemodal'
-      }
-    ]
-  }
-])
-</script>
-
-<template>
-  <UContentNavigation trailing-icon="i-lucide-arrow-up" />
-</template>
-```
+::component-code
+---
+pro: true
+prefix: 'content'
+prettier: true
+collapse: true
+ignore:
+  - class
+  - navigation
+hide:
+  - class
+external:
+  - navigation
+externalTypes:
+  - ContentNavigationItem
+props:
+  class: 'flex justify-start'
+  trailing-icon: 'i-lucide-arrow-up'
+  navigation:
+    - title: 'Guide'
+      icon: 'i-lucide-book-open'
+      path: '#getting-started'
+      children:
+        - title: 'Introduction'
+          path:  '#introduction'
+          active: true
+        - title: 'Installation'
+          path: '#installation'
+    - title: 'Composables'
+      icon: 'i-lucide-database'
+      path: '#composables'
+      children:
+        - title: 'defineShortcuts'
+          path: '#defineshortcuts'
+        - title: 'useModal'
+          path: '#usemodal'
+---
 ::
 
 ## 示例 (Examples)
@@ -359,6 +316,3 @@ const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
 :component-theme{pro=true}
 
-::callout{icon="i-simple-icons-github" to="https://github.com/nuxt-ui-pro/content"}
-为便于阅读，`compoundVariants` 中的某些颜色已省略。请查看 GitHub 上的源代码。
-::

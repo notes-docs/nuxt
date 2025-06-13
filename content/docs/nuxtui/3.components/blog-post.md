@@ -13,10 +13,12 @@ links:
 
 `BlogPost` 组件提供了一种灵活的方式来显示一个 `<article>` 元素，其内容可自定义，包括标题、描述、图片等。
 
-::code-preview
-
-TODO
-
+::component-example
+---
+name: 'blog-post-example'
+class: 'max-w-md mx-auto'
+source: false
+---
 ::
 
 ::tip
@@ -27,42 +29,42 @@ TODO
 
 使用 `title` prop 显示 `BlogPost` 的标题。
 
-::code-preview
-
-<template>
-  <UBlogPost title="Introducing Nuxt Icon v1"></UBlogPost>
-</template>
-
-#code
-```vue
-<template>
-  <UBlogPost title="Introducing Nuxt Icon v1" />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'max-w-md'
+  title: 'Introducing Nuxt Icon v1'
+---
 ::
 
 ### 描述 (Description)
 
 使用 `description` prop 显示 `BlogPost` 的描述。
 
-::code-preview
-
-<template>
-  <UBlogPost
-    title="Introducing Nuxt Icon v1"
-    description="Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects."
-  />
-</template>
-
-#code
-```vue
-<template>
-  <UBlogPost
-    title="Introducing Nuxt Icon v1"
-    description="Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects."
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'max-w-md'
+  title: 'Introducing Nuxt Icon v1'
+  description: 'Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects.'
+---
 ::
 
 ### 日期 (Date)
@@ -70,87 +72,79 @@ TODO
 使用 `date` prop 显示 `BlogPost` 的日期。
 
 ::tip
-日期会自动格式化为**当前语言环境**。你可以传递 `Date` 对象或字符串。
+日期会自动格式化为 **当前语言环境**。你可以传递 `Date` 对象或字符串。
 ::
 
-::code-preview
-
-<template>
-  <UBlogPost
-    title="Introducing Nuxt Icon v1"
-    description="Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects."
-    date="2024-11-25"
-  />
-</template>
-
-#code
-```vue
-<template>
-  <UBlogPost
-    title="Introducing Nuxt Icon v1"
-    description="Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects."
-    date="2024-11-25"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+hide:
+- class
+external:
+externalTypes:
+props:
+  class: 'max-w-md'
+  title: 'Introducing Nuxt Icon v1'
+  description: 'Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects.'
+  date: '2024-11-25'
+---
 ::
 
 ### 徽章 (Badge)
 
 使用 `badge` prop 在 `BlogPost` 中显示一个 [Badge](/ui/components/badge)。
 
-::code-preview
-
-<template>
-  <UBlogPost
-    title="Introducing Nuxt Icon v1"
-    description="Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects."
-    badge="Release"
-  />
-</template>
-
-#code
-```vue
-<template>
-  <UBlogPost
-    title="Introducing Nuxt Icon v1"
-    description="Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects."
-    badge="Release"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'max-w-md'
+  title: 'Introducing Nuxt Icon v1'
+  description: 'Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects.'
+  badge: 'Release'
+---
 ::
 
 你可以传递 [Badge](/ui/components/badge#props) 组件的任何属性来自定义它。
 
-::code-preview
-
-<template>
-  <UBlogPost
-    title="Introducing Nuxt Icon v1"
-    description="Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects."
-    :badge="{
-      label: 'Release',
-      color: 'primary',
-      variant: 'solid'
-    }"
-  />
-</template>
-
-#code
-```vue
-<template>
-  <UBlogPost
-    title="Introducing Nuxt Icon v1"
-    description="Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects."
-    :badge="{
-      label: 'Release',
-      color: 'primary',
-      variant: 'solid'
-    }"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+  - badge.label
+  - badge.color
+  - badge.variant
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'max-w-md'
+  title: 'Introducing Nuxt Icon v1'
+  description: 'Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects.'
+  badge: 
+    label: 'Release'
+    color: 'primary'
+    variant: 'solid'
+---
 ::
 
 ### 图片 (Image)
@@ -161,26 +155,26 @@ TODO
 如果安装了 `@nuxt/image`，将使用 `<NuxtImg>` 组件而不是原生 `img` 标签。
 ::
 
-::code-preview
-
-<UBlogPost
-title="Introducing Nuxt Icon v1"
-description="Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects."
-image="https://nuxt.com/assets/blog/nuxt-icon/cover.png"
-date="2024-11-25"
-/>
-
-#code
-```vue
-<template>
-  <UBlogPost
-    title="Introducing Nuxt Icon v1"
-    description="Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects."
-    image="https://nuxt.com/assets/blog/nuxt-icon/cover.png"
-    date="2024-11-25"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+  - date
+hide:
+- class
+external:
+externalTypes:
+props:
+  class: 'max-w-md'
+  title: 'Introducing Nuxt Icon v1'
+  description: 'Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects.'
+  image: "https://nuxt.com/assets/blog/nuxt-icon/cover.png"
+  date: '2024-11-25'
+---
 ::
 
 ### 作者 (Authors)
@@ -196,126 +190,137 @@ date="2024-11-25"
 
 你可以传递 [Link](/ui/components/link#props) 组件的任何属性，例如 `to`、`target` 等。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const authors = ref([
-  {
-    name: 'Anthony Fu',
-    description: 'antfu7',
-    avatar: {
-      src: 'https://github.com/antfu.png'
-    },
-    to: 'https://github.com/antfu',
-    target: '_blank'
-  }
-])
-</script>
-
-<template>
-  <UBlogPost
-    title="Introducing Nuxt Icon v1"
-    description="Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects."
-    image="https://nuxt.com/assets/blog/nuxt-icon/cover.png"
-    date="2024-11-25"
-    :authors="authors"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+  - date
+  - authors
+  - image
+hide:
+  - class
+external:
+  - authors
+externalTypes:
+props:
+  class: 'max-w-md'
+  title: 'Introducing Nuxt Icon v1'
+  description: 'Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects.'
+  image: "https://nuxt.com/assets/blog/nuxt-icon/cover.png"
+  date: '2024-11-25'
+  authors:
+    - name: 'Anthony Fu'
+      description: 'antfu7'
+      avatar: 
+        src: 'https://github.com/antfu.png'
+      to: 'https://github.com/antfu'
+      target: '_blank'
+---
 ::
 
 当 `authors` prop 包含多于一项时，将使用 [AvatarGroup](/ui/components/avatar-group) 组件。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const authors = ref([
-  {
-    name: 'Anthony Fu',
-    description: 'antfu7',
-    avatar: {
-      src: 'https://github.com/antfu.png'
-    },
-    to: 'https://github.com/antfu',
-    target: '_blank'
-  },
-  {
-    name: 'Benjamin Canac',
-    description: 'benjamincanac',
-    avatar: {
-      src: 'https://github.com/benjamincanac.png'
-    },
-    to: 'https://github.com/benjamincanac',
-    target: '_blank'
-  }
-])
-</script>
-
-<template>
-  <UBlogPost
-    title="Introducing Nuxt Icon v1"
-    description="Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects."
-    image="https://nuxt.com/assets/blog/nuxt-icon/cover.png"
-    date="2024-11-25"
-    :authors="authors"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+  - date
+  - authors
+  - image
+hide:
+  - class
+external:
+  - authors
+externalTypes:
+props:
+  class: 'max-w-md'
+  title: 'Introducing Nuxt Icon v1'
+  description: 'Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects.'
+  image: "https://nuxt.com/assets/blog/nuxt-icon/cover.png"
+  date: '2024-11-25'
+  authors:
+    - name: 'Anthony Fu'
+      description: 'antfu7'
+      avatar:
+        src: 'https://github.com/antfu.png'
+      to: 'https://github.com/antfu'
+      target: '_blank'
+    - name: 'Benjamin Canac'
+      description: 'benjamincanac'
+      avatar: 
+        src: 'https://github.com/benjamincanac.png'
+      to: 'https://github.com/benjamincanac'
+      target: '_blank'
+---
 ::
 
 ### 链接 (Link)
 
 你可以传递 `NuxtLink` 组件的任何属性，例如 `to`、`target`、`rel` 等。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UBlogPost
-    title="Introducing Nuxt Icon v1"
-    description="Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects."
-    image="https://nuxt.com/assets/blog/nuxt-icon/cover.png"
-    date="2024-11-25"
-    to="https://nuxt.com/blog/nuxt-icon-v1-0"
-    target="_blank"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+  - date
+  - image
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'max-w-md'
+  title: 'Introducing Nuxt Icon v1'
+  description: 'Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects.'
+  image: "https://nuxt.com/assets/blog/nuxt-icon/cover.png"
+  date: '2024-11-25'
+  to: 'https://nuxt.com/blog/nuxt-icon-v1-0'
+  target: '_blank'
+---
 ::
 
 ### 变体 (Variant)
 
 使用 `variant` prop 更改 `BlogPost` 的样式。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UBlogPost
-    title="Introducing Nuxt Icon v1"
-    description="Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects."
-    image="https://nuxt.com/assets/blog/nuxt-icon/cover.png"
-    date="2024-11-25"
-    to="https://nuxt.com/blog/nuxt-icon-v1-0"
-    target="_blank"
-    variant="naked"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+  - date
+  - image
+  - to
+  - target
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'max-w-md'
+  title: 'Introducing Nuxt Icon v1'
+  description: 'Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects.'
+  image: "https://nuxt.com/assets/blog/nuxt-icon/cover.png"
+  date: '2024-11-25'
+  to: 'https://nuxt.com/blog/nuxt-icon-v1-0'
+  target: '_blank'
+  variant: 'naked'
+---
 ::
 
 ::note
@@ -326,25 +331,32 @@ TODO
 
 使用 `orientation` prop 更改 `BlogPost` 的方向。默认为 `vertical`。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UBlogPost
-    title="Introducing Nuxt Icon v1"
-    description="Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects."
-    image="https://nuxt.com/assets/blog/nuxt-icon/cover.png"
-    date="2024-11-25"
-    to="https://nuxt.com/blog/nuxt-icon-v1-0"
-    target="_blank"
-    orientation="horizontal"
-    variant="outline"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+  - description
+  - date
+  - image
+  - to
+  - target
+hide:
+  - class
+external:
+externalTypes:
+props:
+  title: 'Introducing Nuxt Icon v1'
+  description: 'Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects.'
+  image: "https://nuxt.com/assets/blog/nuxt-icon/cover.png"
+  date: '2024-11-25'
+  to: 'https://nuxt.com/blog/nuxt-icon-v1-0'
+  target: '_blank'
+  orientation: 'horizontal'
+  variant: 'outline'
+---
 ::
 
 ## API

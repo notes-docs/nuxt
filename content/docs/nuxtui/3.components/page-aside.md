@@ -45,7 +45,7 @@ links:
 
 在布局中使用 `PageAside` 组件来显示导航：
 
-```vue [layouts/docs.vue]
+```vue{9-13} [layouts/docs.vue]
 <script setup lang="ts">
 import type { ContentNavigationItem } from '@nuxt/content'
 

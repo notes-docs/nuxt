@@ -17,29 +17,31 @@ links:
 
 使用 `title` 属性设置徽标上方的标题。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UPageLogos
-    title="Trusted by the best front-end teams"
-    :items="[
-      'i-simple-icons-github',
-      'i-simple-icons-discord',
-      'i-simple-icons-x',
-      'i-simple-icons-instagram',
-      'i-simple-icons-linkedin',
-      'i-simple-icons-facebook'
-    ]"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - items
+hide:
+  - class
+external:
+externalTypes:
+props:
+  class: 'w-ful'
+  title: 'Trusted by the best front-end teams'
+  items:
+    - 'i-simple-icons-github'
+    - 'i-simple-icons-discord'
+    - 'i-simple-icons-x'
+    - 'i-simple-icons-instagram'
+    - 'i-simple-icons-linkedin'
+    - 'i-simple-icons-facebook'
+---
 ::
 
-### **项目**
+### **数据项**
 
 你可以通过两种方式显示徽标：
 
@@ -49,74 +51,97 @@ TODO
 2.  使用默认插槽来完全控制内容。
 
 :::code-group
-::code-preview
 
-TODO
-
-#code
-```vue
-<script setup lang="ts">
-const items = [
-  'i-simple-icons-github',
-  'i-simple-icons-discord',
-  'i-simple-icons-x',
-  'i-simple-icons-instagram',
-  'i-simple-icons-linkedin',
-  'i-simple-icons-facebook'
-]
-</script>
-
-<template>
-  <UPageLogos title="Trusted by the best front-end teams" :items="items" />
-</template>
-```
+::component-code{label='使用数据项'}
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - items
+  - title
+hide:
+  - class
+external:
+  - items
+externalTypes:
+props:
+  class: 'w-ful'
+  title: 'Trusted by the best front-end teams'
+  items:
+    - 'i-simple-icons-github'
+    - 'i-simple-icons-discord'
+    - 'i-simple-icons-x'
+    - 'i-simple-icons-instagram'
+    - 'i-simple-icons-linkedin'
+    - 'i-simple-icons-facebook'
+---
 ::
 
-::code-preview
+::component-code{label='使用插槽'}
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - title
+hide:
+  - class
+external:
+externalTypes:
+slots:
+  default: |
 
-TODO
-
-#code
-```vue
-<template>
-  <UPageLogos title="Trusted by the best front-end teams">
     <UIcon name="i-simple-icons-github" class="size-10 shrink-0" />
     <UIcon name="i-simple-icons-discord" class="size-10 shrink-0" />
     <UIcon name="i-simple-icons-x" class="size-10 shrink-0" />
     <UIcon name="i-simple-icons-instagram" class="size-10 shrink-0" />
     <UIcon name="i-simple-icons-linkedin" class="size-10 shrink-0" />
     <UIcon name="i-simple-icons-facebook" class="size-10 shrink-0" />
-  </UPageLogos>
-</template>
-```
+
+props:
+  class: 'w-ful'
+  title: 'Trusted by the best front-end teams'
+---
+<UIcon name="i-simple-icons-github" class="size-10 shrink-0"></UIcon>
+<UIcon name="i-simple-icons-discord" class="size-10 shrink-0"></UIcon>
+<UIcon name="i-simple-icons-x" class="size-10 shrink-0"></UIcon>
+<UIcon name="i-simple-icons-instagram" class="size-10 shrink-0"></UIcon>
+<UIcon name="i-simple-icons-linkedin" class="size-10 shrink-0"></UIcon>
+<UIcon name="i-simple-icons-facebook" class="size-10 shrink-0"></UIcon>
 ::
+
 :::
 
 ### **跑马灯**
 
 使用 `marquee` 属性启用徽标的跑马灯效果。
 
-::code-preview
-
-TODO
-
-#code
-```vue
-<template>
-  <UPageLogos
-    title="Trusted by the best front-end teams"
-    marquee
-    :items="[
-      'i-simple-icons-github',
-      'i-simple-icons-discord',
-      'i-simple-icons-x',
-      'i-simple-icons-instagram',
-      'i-simple-icons-linkedin',
-      'i-simple-icons-facebook'
-    ]"
-  />
-</template>
-```
+::component-code
+---
+pro: true
+prettier: true
+ignore:
+  - class
+  - items
+  - marquee
+hide:
+  - class
+external:
+  - items
+externalTypes:
+props:
+  class: 'w-ful'
+  title: 'Trusted by the best front-end teams'
+  marquee: true
+  items:
+    - 'i-simple-icons-github'
+    - 'i-simple-icons-discord'
+    - 'i-simple-icons-x'
+    - 'i-simple-icons-instagram'
+    - 'i-simple-icons-linkedin'
+    - 'i-simple-icons-facebook'
+---
 ::
 
 ::note
