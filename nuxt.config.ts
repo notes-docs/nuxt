@@ -104,6 +104,12 @@ export default defineNuxtConfig({
   },
   vite: {
     plugins: [
+      {
+        name: 'debug-plugin',
+        configureServer(server) {
+          console.log('Vite 插件列表:', server.config.plugins.map(p => p.name))
+        }
+      },
       commonjs({
         filter(id) {
           return id.includes('node_modules/debug')
@@ -198,4 +204,10 @@ export default defineNuxtConfig({
     // Do not throw when twoslash fails, the typecheck should be down in github.com/nuxt/nuxt's CI
     throws: true
   },
+  postcss: {
+    plugins: {
+      'postcss-nested': {}, // 处理嵌套规则
+      'autoprefixer': {}
+    }
+  }
 })

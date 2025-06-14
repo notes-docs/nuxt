@@ -93,27 +93,21 @@ onUnmounted(() => {
 <template>
   <!-- 确保整个 iframe 仅在客户端渲染，避免 SSR 阶段生成不一致的 DOM 结构 -->
   <ClientOnly>
-    <div
+    <iframe
+      ref="iframeRef"
       :class="[
-        themeStrategy === 'override' ? '' : colorMode.value
+        'h-[340px] w-full',
+        {
+          dark: colorMode.value === 'dark',
+          light: colorMode.value === 'light'
+        }
       ]"
+      v-bind="$attrs"
     >
-      <iframe
-        ref="iframeRef"
-        v-bind="$attrs"
-        :class="[
-          'h-[340px] w-full',
-          {
-            dark: colorMode.value === 'dark',
-            light: colorMode.value === 'light'
-          }
-        ]"
-      >
-        <!-- 独立的 Teleport 容器  -->
-        <Teleport v-if="mountNode" :to="mountNode">
-        <slot :theme="colorMode.preference || colorMode.value"/>
-        </Teleport>
-      </iframe>
-    </div>
+      <!-- 独立的 Teleport 容器  -->
+      <Teleport v-if="mountNode" :to="mountNode">
+      <slot :theme="colorMode.preference || colorMode.value"/>
+      </Teleport>
+    </iframe>
   </ClientOnly>
 </template>

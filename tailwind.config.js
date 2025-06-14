@@ -12,12 +12,4 @@ module.exports = {
   //     }
   //   }
   // },
-  // safeList: [
-  //   'outline-primary'
-  // ],
-  corePlugins: {
-    fontVariantNumeric: true, // 确保开启
-    float: false,
-    clear: false
-  }
 }

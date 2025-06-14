@@ -61,13 +61,13 @@ onUnmounted(() => {
   <div
     ref="containerRef"
     :class="[
-      className,
       'group not-prose relative overflow-hidden sm:overflow-visible',
       { 'cursor-ew-resize': isDragging }
     ]"
   >
     <div
       :class="[
+        className,
         padding && 'p-8',
         '@container relative overflow-auto rounded-lg bg-white outline outline-white/5 dark:bg-gray-950/50 dark:inset-ring dark:inset-ring-white/5',
         { 'before:absolute before:inset-0': isDragging }

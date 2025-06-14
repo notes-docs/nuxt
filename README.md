@@ -77,3 +77,11 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 npm install --force --platform=linux
 npm rebuild better-sqlite3 --platform=linux --update-binary
 
+## 参考
+
+- https://www.shadcn-ui.cn/
+- https://github.com/shadcn-ui/ui
+- https://github.com/droplet-js/nuxt-ui-pro
+- https://vue-data-ui.graphieros.com/
+
+
