@@ -211,7 +211,5 @@ export default defineNuxtConfig({
       'postcss-nested': {}, // 处理嵌套规则
       'autoprefixer': {}
     }
-  },experimental: {
-    nativeSqlite: true
   }
 })
