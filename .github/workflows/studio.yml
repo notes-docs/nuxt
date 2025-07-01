@@ -31,7 +31,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [22]
+        node: [20]
 
     steps:
 #      - name: Setup build environment
@@ -61,7 +61,7 @@ jobs:
           cache: ${{ steps.pkgman.outputs.cache }}
 
       - name: Install dependencies
-        run: ${{ steps.pkgman.outputs.package_manager }} install --no-frozen-lockfile
+        run: ${{ steps.pkgman.outputs.package_manager }} install
 
       - name: Install better-sqlite3
         run: ${{ steps.pkgman.outputs.package_manager }} add better-sqlite3
