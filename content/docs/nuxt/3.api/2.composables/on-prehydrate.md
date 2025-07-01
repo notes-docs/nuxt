@@ -15,12 +15,17 @@ links:
 `onPrehydrate` 是一个组合式生命周期钩子，允许你在客户端上 Nuxt 水合页面之前立即运行回调函数。
 
 ::note
-这是一个高级实用程序，应谨慎使用。例如，[`nuxt-time`](https://github.com/danielroe/nuxt-time/pull/251) 和 [`@nuxtjs/color-mode`](https://github.com/nuxt-modules/color-mode/blob/main/src/script.js) 会操作 DOM 以避免水合不匹配。
+这是一个高级实用工具，应谨慎使用。例如，[`nuxt-time`](https://github.com/danielroe/nuxt-time/pull/251) 和 [`@nuxtjs/color-mode`](https://github.com/nuxt-modules/color-mode/blob/main/src/script.js) 会操作 DOM 以避免水合不匹配。
 ::
 
 ## 用法
 
 `onPrehydrate` 可以直接在 Vue 组件的 setup 函数中（例如，在 `<script setup>` 中）或在插件中调用。它仅在服务器端调用时有效，并且不会包含在你的客户端构建中。
+
+* 执行环境：仅客户端生效，但定义必须在服务端完成（通过 SSR 内联到 HTML 中）。
+* 序列化内联机制 onPrehydrate 的回调函数需在 SSR 阶段被字符串化并直接嵌入 HTML。
+* 限制：回调函数必须为纯函数，无法引用外部变量或自动导入工具（如 useState）。
+* 水合（Hydration）开始前，从 HTML 中提取函数字符串，重新转换为可执行函数并调用。**函数可调用浏览器 API，但无 Nuxt/Vue 上下文**。
 
 ## 参数
 

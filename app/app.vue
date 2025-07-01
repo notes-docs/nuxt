@@ -3,6 +3,7 @@ import { useHead } from '#imports'
 
 //  @nuxtjs/color-mode
 const colorMode = useColorMode()
+const appConfig = useAppConfig()
 const { searchGroups, searchLinks, searchTerm } = useNavigation()
 
 // 主题颜色切换
@@ -77,7 +78,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <UApp>
+  <UApp :toaster="appConfig.toaster">
     <NuxtLoadingIndicator color="var(--ui-primary)" />
 <!--    <UBanner-->
 <!--      id="nuxt-tips-michael"-->

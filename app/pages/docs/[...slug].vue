@@ -137,18 +137,25 @@ useSeoMeta({
   title
 })
 
+// 如果当前运行环境是服务端（SSR）
 if (import.meta.server) {
+  // 获取页面描述信息，优先使用 SEO 中的 description，否则使用页面默认的 description
   const description = page.value.seo?.description || page.value.description
+
+  // 设置 SEO 相关的 meta 标签
   useSeoMeta({
-    description,
-    ogDescription: description,
+    description, // 页面描述
+    ogDescription: description, // Open Graph 描述
+    // 动态生成 Open Graph 标题，替换模板中的 %s 占位符为实际标题
     ogTitle: titleTemplate.value?.includes('%s') ? titleTemplate.value.replace('%s', title) : title
   })
 
+  // 定义 Open Graph 图像组件配置
   defineOgImageComponent('Docs', {
+    // 面包屑路径作为 headline 显示，用 > 拼接各层级标签
     headline: breadcrumb.value.length ? breadcrumb.value.map(link => link.label).join(' > ') : '',
-    title,
-    description
+    title, // 页面标题
+    description // 页面描述
   })
 }
 </script>
@@ -188,7 +195,7 @@ if (import.meta.server) {
                 <!--                <UButton size="sm" variant="link" color="neutral" :to="editLink" target="_blank"> -->
                 <!--                  Edit this page on GitHub -->
                 <!--                </UButton> -->
-                老母鸡
+                <UIcon name="i-lucide-lightbulb" size="sm" />
               </div>
             </USeparator>
             <UContentSurround :surround="surround" />

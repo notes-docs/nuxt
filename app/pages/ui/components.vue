@@ -5,7 +5,7 @@ import { useWindowScroll } from '@vueuse/core'
 const { url } = useSiteConfig()
 
 const title = 'Vue Components'
-const description = '探索 99+ 个使用 Tailwind CSS 和 Reka UI 构建的 Vue 和 Nuxt 可定制 UI 组件。'
+const description = '探索 101+ 个使用 Tailwind CSS 和 Reka UI 构建的 Vue 和 Nuxt 可定制 UI 组件。'
 
 useSeoMeta({
   titleTemplate: '%s - Nuxt UI',

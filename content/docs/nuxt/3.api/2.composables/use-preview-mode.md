@@ -114,6 +114,5 @@ npx nuxi preview
 ```
 
 ::note
-`usePreviewMode` should be tested locally with `nuxi generate` and then `nuxi preview` rather than `nuxi dev`. (The [preview command](/docs/api/commands/preview) is not related to preview mode.)
 `usePreviewMode` 应该在本地使用 `nuxi generate` 然后 `nuxi preview` 进行测试，而不是 nuxi dev。（[preview 命令](/docs/api/commands/preview) 与预览模式无关。）
 ::

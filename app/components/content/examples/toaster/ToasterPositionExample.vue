@@ -18,7 +18,7 @@ const appConfig = useAppConfig()
       }"
     >
       <USelectMenu
-        v-model="appConfig.toaster.position"
+        v-model="appConfig.ui.toaster.defaultVariants.position"
         :items="positions"
         color="neutral"
         variant="soft"

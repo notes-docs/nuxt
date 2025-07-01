@@ -27,8 +27,8 @@ links:
   - `leading` 插槽 (`#leading`): 自定义标题左侧的内容，通常用于图标。
   - `trailing` 插槽 (`#trailing`): 自定义标题右侧的内容，通常用于箭头或切换图标。
   - `content` 插槽 (`#content`): 自定义手风琴项的内容区域。
-  - `body` 插槽 (`#body`): 类似 `content`，但通常用于包裹默认内容，并保留 `body` 样式。
-  - 具名内容插槽 (`#{{ item.slot }}`): 如果你在 `items` 数组的某个项中设置了 `slot: 'myCustomSlotName'`，你可以使用 `#myCustomSlotName` 或 `#myCustomSlotName-body` 来为该特定项提供完全自定义的内容。
+  - `body` 内容主体插槽 (`#body`): 类似 `content`，但通常用于包裹默认内容，并保留 `body` 样式。
+  - 自定义具名插槽 (`#{{ item.slot }}`): 如果你在 `items` 数组的某个项中设置了 `slot: 'myCustomSlotName'`，你可以使用 `#myCustomSlotName` 或 `#myCustomSlotName-body` 来为该特定项提供完全自定义的内容。
 
 ### Items
 
@@ -314,6 +314,10 @@ props:
 - `#{{ item.slot }}`{lang="ts-type"}
 - `#{{ item.slot }}-body`{lang="ts-type"}
 
+::note
+`#{{ item.slot }}-body`{lang="ts-type"} 比 `#{{ item.slot }}`{lang="ts-type"} 插槽多包含一些预定义样式。如果想从头开始，请使用 `#{{ item.slot }}`{lang="ts-type"}。
+::
+
 ::component-example
 ---
 name: 'accordion-custom-slot-example'
@@ -322,15 +326,35 @@ props:
 ---
 ::
 
+#### 内容渲染的优先级流程
+
+以下是内容渲染的优先级顺序，从高到低：
+
+1. 数据项特定的 `item.slot`（不带 `-body` 后缀）：如果 `item.slot` 已定义，并且父组件提供了与该确切名称匹配的具名插槽。
+2. 通用 `content` 插槽：如果没有使用 `item.slot`（或没有为其提供匹配的插槽），但父组件提供了通用的 `content` 具名插槽。
+3. 数据项特定的 `item.slot-body`（带 `-body` 后缀）：如果上述两者都不适用，但 `item.slot` 已定义，并且父组件提供了与 `item.slot + '-body'` 匹配的具名插槽。
+4. 通用 `body` 插槽：如果上述三者都不适用，但父组件提供了通用的 `body` 插槽。
+5. `item.content` 字符串：如果父组件绝对没有提供任何插槽，则显示 `item.content` 中的原始字符串。
+
+::tip
+包含 `content` 类型插槽比包含 `body` 插槽可定制性更多。
+::
+
 ### 使用自定义 ui
 
 ::component-example
 ---
 name: 'accordion-custom-ui-example'
+collapse: true
 props:
-  class: 'px-4'
+  class: 'w-full'
 ---
 ::
+
+1. 可以通过 `props.class` 定义根组件的样式。
+2. 可以通过 `props.ui` 覆盖组件的默认样式。
+3. 可以通过 `item.class` 定义当前手风琴项目的根样式。
+4. 可以通过 `item.ui` 覆盖当前手风琴项目默认样式。
 
 ## API
 
@@ -374,48 +398,14 @@ update:modelValue 事件主要用于：
 
 这是最简洁的用法。
 
-```vue
-<template>
-  <div>
-    <h2>使用 v-model 控制手风琴</h2>
-    <p>当前展开项的值: {{ activeAccordionItem }}</p>
-
-    <UAccordion
-      v-model="activeAccordionItem"
-      :items="accordionItems"
-      type="single"
-    />
-
-    <UDivider class="my-6" />
-
-    <h2>使用 v-model 控制多个手风琴</h2>
-    <p>当前展开项的值 (多选): {{ activeMultipleAccordionItems }}</p>
-
-    <UAccordion
-      v-model="activeMultipleAccordionItems"
-      :items="accordionItems"
-      type="multiple"
-    />
-  </div>
-</template>
-
-<script setup lang="ts">
-import { ref } from 'vue'
-import type { AccordionItem } from '@nuxt/ui'
-
-const accordionItems: AccordionItem[] = [
-  { label: '服务条款', content: '这里是服务条款的详细内容。', value: 'terms' },
-  { label: '隐私政策', content: '这里是隐私政策的详细内容。', value: 'privacy' },
-  { label: '联系方式', content: '您可以通过邮箱或电话联系我们。', value: 'contact' }
-];
-
-// 单选模式的 v-model
-const activeAccordionItem = ref<string | null>('privacy'); // 初始展开 'privacy'
-
-// 多选模式的 v-model
-const activeMultipleAccordionItems = ref<string[]>(['terms']); // 初始展开 'terms'
-</script>
-```
+::component-example
+---
+name: 'accordion-model-value2-example'
+collapse: true
+props:
+  class: 'w-full'
+---
+::
 
 解释：
 
@@ -427,69 +417,14 @@ const activeMultipleAccordionItems = ref<string[]>(['terms']); // 初始展开 '
 
 当你需要截获 `update:modelValue` 事件并执行额外逻辑时，可以使用这种方式。
 
-```vue
-<template>
-  <div>
-    <h2>使用 @update:modelValue 监听手风琴状态</h2>
-    <p>当前展开项: {{ currentActiveItem }}</p>
-    <p>上一个操作: {{ lastAction }}</p>
-
-    <UAccordion
-      :model-value="currentActiveItem"
-      @update:model-value="handleAccordionChange"
-      :items="accordionItems"
-      type="single"
-    />
-  </div>
-</template>
-
-<script setup lang="ts">
-import { ref } from 'vue'
-import type { AccordionItem } from '@nuxt/ui'
-
-const accordionItems: AccordionItem[] = [
-  { label: '产品介绍', content: '我们的产品功能强大，操作简便。', value: 'product' },
-  { label: '技术支持', content: '遇到任何问题，请联系我们的技术支持团队。', value: 'support' },
-  { label: '合作伙伴', content: '期待与您建立长期的合作关系。', value: 'partners' }
-];
-
-const currentActiveItem = ref<string | null>('product');
-const lastAction = ref<string>('无');
-
-const handleAccordionChange = (newValue: string | string[]) => {
-  console.log('手风琴状态改变了！新值:', newValue);
-
-  // 根据新旧值判断是展开还是折叠
-  if (Array.isArray(newValue)) { // 多选模式
-      if (currentActiveItem.value && !newValue.includes(currentActiveItem.value[0])) { // 假设只关心第一个元素
-          lastAction.value = `折叠了: ${currentActiveItem.value[0]}`;
-      } else if (newValue.length > (currentActiveItem.value as string[]).length) {
-          const newOpened = newValue.filter(val => !(currentActiveItem.value as string[]).includes(val));
-          lastAction.value = `展开了: ${newOpened.join(', ')}`;
-      } else {
-          lastAction.value = '状态更新';
-      }
-  } else { // 单选模式
-      if (newValue === null) {
-          lastAction.value = `折叠了: ${currentActiveItem.value}`;
-      } else if (currentActiveItem.value === null) {
-          lastAction.value = `展开了: ${newValue}`;
-      } else {
-          lastAction.value = `从 ${currentActiveItem.value} 切换到 ${newValue}`;
-      }
-  }
-
-  // 更新组件的 active 状态，这是必须的，因为我们没有使用 v-model
-  currentActiveItem.value = newValue as string | null;
-
-  // 你可以在这里执行其他逻辑，例如发送分析事件，加载数据等
-  if (newValue === 'support') {
-    console.log('用户展开了技术支持，准备加载相关文档...');
-    // loadSupportDocs();
-  }
-};
-</script>
-```
+::component-example
+---
+name: 'accordion-model-value3-example'
+collapse: true
+props:
+  class: 'w-full'
+---
+::
 
 解释：
 

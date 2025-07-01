@@ -14,6 +14,8 @@ links:
 
 ::note
 `useLazyAsyncData` 具有与 [`useAsyncData`](/docs/api/composables/use-async-data) 相同的签名。
+<br>
+会阻塞导航：指该组合函数默认会暂停页面切换（路由跳转）直至其异步数据加载完成。
 ::
 
 :read-more{to="/docs/api/composables/use-async-data"}

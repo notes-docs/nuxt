@@ -35,6 +35,18 @@ function _useHeaderLinks() {
         to: '/docs/content/getting-started',
         active: route.path.startsWith('/docs/content/getting-started')
       }, {
+        label: 'Image',
+        description: 'Nuxt Image 模块文档',
+        icon: 'i-lucide-book-open',
+        to: '/docs/image/getting-started',
+        active: route.path.startsWith('/docs/image/getting-started')
+      }, {
+        label: 'I18n',
+        description: 'I18n 文档',
+        icon: 'i-lucide-app-window-mac',
+        to: '/docs/i18n/getting-started',
+        active: route.path.startsWith('/docs/i18n/getting-started')
+      }, {
         label: 'Tailwindcss',
         description: 'Tailwindcss 文档',
         icon: 'i-lucide-code-xml',
@@ -52,6 +64,18 @@ function _useHeaderLinks() {
         icon: 'i-lucide-app-window-mac',
         to: '/ui/components',
         active: route.path.startsWith('/ui/getting-started')
+      }, {
+        label: 'Reka UI',
+        description: 'Reka UI 文档',
+        icon: 'i-lucide-app-window-mac',
+        to: '/docs/reka/overview',
+        active: route.path.startsWith('/docs/reka/overview')
+      }, {
+        label: 'Scrapy',
+        description: 'Scrapy 文档',
+        icon: 'i-lucide-app-window-mac',
+        to: '/docs/scrapy/first_steps',
+        active: route.path.startsWith('/docs/scrapy/first_steps')
       }]
     }, {
       label: '集成',

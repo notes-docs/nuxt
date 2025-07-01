@@ -1,11 +1,14 @@
 <script setup lang="ts">
 const { data: page } = await useAsyncData('blog-landing', () => queryCollection('landing').path('/blog').first())
+
 if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
+
 definePageMeta({
-  heroBackground: 'opacity-70 -z-10'
+  heroBackground: 'opacity-70 -z-10' // 在 app.vue 中被使用
 })
+
 const { fetchList, articles } = useBlog()
 
 useHead({
@@ -18,6 +21,7 @@ useHead({
     }
   ]
 })
+
 useSeoMeta({
   titleTemplate: '%s',
   title: page.value.title,
@@ -25,13 +29,16 @@ useSeoMeta({
   ogDescription: page.value.description,
   ogTitle: page.value.title
 })
+
+// 用于动态生成 Open Graph（OG）社交分享图片的核心函数
+// Docs 不是随便指定的，它是你为了统一管理和生成特定样式 OG 图像而创建或指定的组件名称。
 defineOgImageComponent('Docs', {
   headline: 'Blog',
   title: page.value.title,
   description: page.value.description
 })
 
-await fetchList()
+await fetchList() // 刷新重新获取博客列表
 </script>
 
 <template>

@@ -184,7 +184,7 @@ name: 'tooltip-open-example'
 
 ::note
 在此示例中，利用 [`defineShortcuts`](/composables/define-shortcuts)，你可以通过按 :kbd{value="O"} 来切换 Tooltip。
-::
+:: 
 
 ## API
 

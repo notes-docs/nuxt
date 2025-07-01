@@ -7,6 +7,11 @@ export default defineAppConfig({
       primary: 'green', // 主色调为绿色, 覆盖 nuxt.config.ts 中自动分配的 primary 颜色
       neutral: 'slate', // 中性色使用 slate（石板灰）
       important: 'violet' // 重要元素使用紫色
+    },
+    toaster: {
+      defaultVariants: {
+        position: 'top-right' // 这样才符合类型定义
+      },
     }
   },
   // 针对 @nuxt/ui-pro 组件库进行高级样式定制
@@ -32,8 +37,7 @@ export default defineAppConfig({
       }
     }
   },
-  toaster: {
-    position: 'bottom-right' as const,
+  toaster: {// 为了演示把 position 移动到其它位置配置
     expand: true,
     duration: 5000
   }

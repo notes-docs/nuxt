@@ -36,7 +36,7 @@ export default defineNuxtConfig({
             default: 'material-theme-lighter',
             dark: 'material-theme-palenight'
           },
-          preload: ['sql', 'diff', 'ini']
+          preload: ['sql', 'diff', 'ini', 'python']
         }
       }
     },
@@ -66,7 +66,9 @@ export default defineNuxtConfig({
     // Redirects
     '/docs': { redirect: '/docs/nuxt/getting-started/introduction', prerender: false },
     '/docs/nuxt/getting-started': { redirect: '/docs/nuxt/getting-started/introduction', prerender: false },
+    '/docs/image/getting-started': { redirect: '/docs/image/getting-started/installation', prerender: false },
     '/docs/tailwindcss/getting-started': { redirect: '/docs/tailwindcss/getting-started/installation', prerender: false },
+    '/docs/reka/overview': { redirect: '/docs/reka/overview/introduction', prerender: false },
     '/docs/nuxt/guide/concepts': { redirect: '/docs/nuxt/guide/concepts/auto-imports', prerender: false },
     '/docs/nuxt/guide/directory-structure': { redirect: '/docs/nuxt/guide/directory-structure/app', prerender: false },
     '/docs/nuxt/guide/going-further': { redirect: '/docs/nuxt/guide/going-further/experimental-features', prerender: false },

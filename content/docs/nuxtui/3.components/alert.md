@@ -248,28 +248,11 @@ props:
 
 `actions` 接受一个 按钮配置对象数组，每个对象支持 `UButton` 的所有属性：
 
-```vue
-<script setup lang="ts">
-const handleAsyncAction = async () => {
-  const data = await fetchData()
-  showToast(`加载完成: ${data.length} 条记录`)
-}
-</script>
-
-<template>
-  <UAlert
-    title="数据同步"
-    :actions="[
-      { 
-        label: '立即同步', 
-        loadingIcon: 'i-heroicons-arrow-path',
-        onClick: handleAsyncAction, // 注意：在 v-bind 中，事件监听器需要使用 'onEventName' 的驼峰命名约定
-        loading: false // 可动态控制加载状态
-      }
-    ]"
-  />
-</template>
-```
+::component-example
+---
+name: 'alert-actions-example'
+---
+::
 
 ### `class` prop
 
@@ -325,26 +308,11 @@ props:
 
 #### 使用示例
 
-```vue
-<script setup lang="ts">
-import { ref } from 'vue'
-
-const showAlert = ref(true)
-</script>
-
-<template>
-  <!-- 用 v-if 控制组件显示 -->
-  <Alert
-    v-if="showAlert"
-    title="提示"
-    description="这是一个警告提示框"
-    color="warning"
-    variant="solid"
-    close
-    @update:open="showAlert = false"
-  />
-</template>
-```
+::component-example
+---
+name: 'alert-hidden-example'
+---
+::
 
 ## Theme
 
