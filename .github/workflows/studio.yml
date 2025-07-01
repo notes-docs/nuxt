@@ -57,8 +57,8 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          version: ${{ matrix.node }}
-          cache: ${{ steps.pkgman.outputs.cache }}
+          node-version: ${{ matrix.node }}
+#          cache: ${{ steps.pkgman.outputs.cache }}
 
       - name: Install dependencies
         run: ${{ steps.pkgman.outputs.package_manager }} install
