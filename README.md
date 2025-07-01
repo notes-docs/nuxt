@@ -77,6 +77,16 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 npm install --force --platform=linux
 npm rebuild better-sqlite3 --platform=linux --update-binary
 
+## 测试
+
+```json
+"pnpm": {
+  "overrides": {
+    "@nuxt/ui": "link:../web-sources/packages/ui"
+  }
+},
+```
+
 ## 参考
 
 - https://www.shadcn-ui.cn/
