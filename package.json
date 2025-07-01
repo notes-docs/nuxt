@@ -77,6 +77,7 @@
     "vite-plugin-commonjs": "^0.10.4",
     "vue-tsc": "^2.2.10"
   },
+  "packageManager": "pnpm@9.14.2",
   "pnpm": {
     "patchedDependencies": {
       "@nuxt/ui-pro": "patches/@nuxt__ui-pro.patch"
