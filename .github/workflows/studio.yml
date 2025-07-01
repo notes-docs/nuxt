@@ -59,7 +59,7 @@ jobs:
         run: ${{ steps.pkgman.outputs.package_manager }} install --no-frozen-lockfile
 
       - name: Rebuild better-sqlite3
-        run: pnpm rebuild better-sqlite3
+        run: ${{ steps.pkgman.outputs.package_manager }} rebuild better-sqlite3
 
       - name: Generate
         run: ${{ steps.pkgman.outputs.package_manager }} run build
