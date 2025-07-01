@@ -34,10 +34,10 @@ jobs:
         node: [22]
 
     steps:
-      - name: Setup build environment
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y build-essential python3 make
+#      - name: Setup build environment
+#        run: |
+#          sudo apt-get update
+#          sudo apt-get install -y build-essential python3 make
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -63,8 +63,8 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.pkgman.outputs.package_manager }} install --no-frozen-lockfile
 
-      - name: Rebuild better-sqlite3
-        run: ${{ steps.pkgman.outputs.package_manager }} rebuild better-sqlite3
+#      - name: Rebuild better-sqlite3
+#        run: ${{ steps.pkgman.outputs.package_manager }} rebuild better-sqlite3
 
       - name: Generate
         run: ${{ steps.pkgman.outputs.package_manager }} run build
