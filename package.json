@@ -38,6 +38,7 @@
     "@vueuse/core": "^13.3.0",
     "ai": "^4.3.16",
     "autoprefixer": "^10.4.21",
+    "better-sqlite3": "^12.2.0",
     "cross-env": "^7.0.3",
     "debug": "4.3.4",
     "feed": "^5.1.0",
@@ -76,10 +77,6 @@
     "vite-plugin-commonjs": "^0.10.4",
     "vue-tsc": "^2.2.10"
   },
-  "patchedDependencies": {
-    "@nuxt/ui-pro@x.x.x": "patches/@nuxt__ui-pro@x.x.x.patch"
-  },
-  "packageManager": "pnpm@10.8.0+sha512.0e82714d1b5b43c74610193cb20734897c1d00de89d0e18420aebc5977fa13d780a9cb05734624e81ebd81cc876cd464794850641c48b9544326b5622ca29971",
   "pnpm": {
     "patchedDependencies": {
       "@nuxt/ui-pro": "patches/@nuxt__ui-pro.patch"
